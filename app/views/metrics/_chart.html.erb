@@ -5,6 +5,7 @@
     $.get('<%= data_node_metric_path(@node, @metric, :format => :json) -%>', function(data){
       chart1 = new Highcharts.Chart({
         chart: {
+          animation: false,
           renderTo: 'chart-container-1',
           defaultSeriesType: 'line'
         },
@@ -12,7 +13,9 @@
           text: '<%= @metric.name.capitalize %>'
         },
         xAxis: {
-          categories: ['Apples', 'Bananas', 'Oranges']
+          title: {
+            text: 'Time'
+          }
         },
         yAxis: {
           title: {

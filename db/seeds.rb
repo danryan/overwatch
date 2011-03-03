@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+node = Node.create(:name => "Foo Server", :ip_address => "10.0.1.120")
+
+i = 1.0
+j = 1.0
+while i < 100.0
+  node.metrics.create(:name => "load", :data => { :one_min => i })
+  node.metrics.create(:name => "disk_usage", :data => { :percentage => j } )
+  i += 1.0
+  j += 1.0
+end

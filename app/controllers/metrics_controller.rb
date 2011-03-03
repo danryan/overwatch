@@ -9,7 +9,7 @@ class MetricsController < ApplicationController
   end
 
   def show
-    @metric = @node.metrics.find_by_slug(params[:id])
+    @metric = @node.metrics.where(:name => params[:id]).limit(1).first
     respond_with(@metric)
   end
 

@@ -2,4 +2,5 @@
 
 %h2 Metrics
 
-= link_to @node.metrics.first.name, [@node, @node.metrics.first]
+- @node.metrics.all.distinct(:name).each do |metric|
+  = link_to metric, node_metric_path(@node, metric)

@@ -6,6 +6,8 @@ class Node
   field :name, :type => String
   field :ip_address, :type => String
   
+  # index "metrics.name", :unique => true
+  
   slug :name
   # validates_presence_of :name, :ip_address
   
