@@ -2,7 +2,7 @@ class NodesController < ApplicationController
   respond_to :html, :json
   
   def index
-    @nodes = Node.all
+    @nodes = Node.all.only(:name, :ip_address)
     respond_with(@nodes)
   end
 
