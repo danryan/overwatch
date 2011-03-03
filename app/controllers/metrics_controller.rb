@@ -21,7 +21,7 @@ class MetricsController < ApplicationController
   def create
     @metric = @node.metrics.new(params[:metric])
     flash[:success] = "Metric created" if @metric.save
-    respond_with(@metric, :location => metric_url(@metric))
+    respond_with(@metric, :location => node_metric_url(@node, @metric))
   end
   
   def edit
@@ -33,7 +33,7 @@ class MetricsController < ApplicationController
     @metric = @node.metrics.find(params[:id])
     if @metric.update_attributes(params[:metric])
       flash[:success] = "Metric updated"
-      respond_with(@metric, :location => metric_url(@metric))
+      respond_with(@metric, :location => node_metric_url(@node, @metric))
     end
   end
   
