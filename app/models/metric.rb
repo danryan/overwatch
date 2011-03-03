@@ -1,9 +1,12 @@
 class Metric
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
   
-  field :name, :type => String
-  field :data, :type => Hash
+  field :name,  :type => String
+  field :data,  :type => Hash
+
+  slug :name
   
   embedded_in :node, :inverse_of => :metrics
   

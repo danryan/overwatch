@@ -5,6 +5,7 @@ gem 'rails', '3.0.5'
 gem 'thin'
 
 gem "mongoid", "~> 2.0.0.rc.7"
+gem 'mongoid_slug', :require => 'mongoid/slug'
 gem "bson_ext", "~> 1.2.4"
 gem "haml", "~> 3.0.25"
 gem "simple_form", "~> 1.3.1"

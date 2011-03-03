@@ -1,0 +1,28 @@
+<script>
+  var chart1; // globally available
+  var dataz;
+  $(document).ready(function() {
+    $.get('<%= data_node_metric_path(@node, @metric, :format => :json) -%>', function(data){
+      chart1 = new Highcharts.Chart({
+        chart: {
+          renderTo: 'chart-container-1',
+          defaultSeriesType: 'line'
+        },
+        title: {
+          text: '<%= @metric.name.capitalize %>'
+        },
+        xAxis: {
+          categories: ['Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+          title: {
+            text: 'Fruit eaten'
+          }
+        },
+        series: data
+      });
+    });
+  });
+</script>   
+
+<div id="chart-container-1" style="width: 1000px; height: 400px"></div>

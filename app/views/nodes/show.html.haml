@@ -1,2 +1,5 @@
-%h1 Nodes#show
-%p Find me in app/views/nodes/show.html.haml
+%h1 Node: #{@node.name}
+
+%h2 Metrics
+
+= link_to @node.metrics.first.name, [@node, @node.metrics.first]
