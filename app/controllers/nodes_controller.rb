@@ -3,7 +3,7 @@ class NodesController < ApplicationController
   
   def index
     @nodes = Node.all
-    respond_with(@node)
+    respond_with(@nodes)
   end
 
   def show

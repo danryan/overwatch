@@ -7,5 +7,5 @@ class Node
   
   validates_presence_of :name, :ip_address
   
-  embeds_many :metrics
+  references_many :metrics, :dependent => :destroy
 end

@@ -1,4 +1,5 @@
 Lansing::Application.routes.draw do
-  resources :nodes
-  resources :metrics
+  resources :nodes do
+    resources :metrics
+  end
 end
