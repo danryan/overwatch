@@ -43,6 +43,11 @@ class MetricsController < ApplicationController
     respond_with(@metric)
   end
   
+  def data
+    @metric = @node.metrics.find(params[:id])
+    respond_with(@metric[:data])
+  end
+  
   private
   
   def find_node
