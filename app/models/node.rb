@@ -6,4 +6,6 @@ class Node
   field :ip_address, :type => String
   
   validates_presence_of :name, :ip_address
+  
+  embeds_many :metrics
 end
