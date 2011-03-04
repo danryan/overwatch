@@ -2,12 +2,12 @@ class NodesController < ApplicationController
   respond_to :html, :json
   
   def index
-    @nodes = Node.all.only(:slug, :ip_address)
+    @nodes = Node.all
     respond_with(@nodes)
   end
 
   def show
-    @node = Node.find_by_slug(params[:id])
+    @node = Node.find_by_key(params[:id])
     respond_with(@node)
   end
 
@@ -23,12 +23,12 @@ class NodesController < ApplicationController
   end
   
   def edit
-    @node = Node.find_by_slug(params[:id])
+    @node = Node.find_by_key(params[:id])
     respond_with(@node)
   end
   
   def update
-    @node = Node.find_by_slug(params[:id])
+    @node = Node.find_by_key(params[:id])
     if @node.update_attributes(params[:node])
       flash[:success] = "Node updated"
       respond_with(@node, :location => node_url(@node))
@@ -36,7 +36,7 @@ class NodesController < ApplicationController
   end
   
   def destroy
-    @node = Node.find_by_slug(params[:id])
+    @node = Node.find_by_key(params[:id])
     flash[:success] = "Node destroyed" if @node.destroy
     respond_with(@node)
   end

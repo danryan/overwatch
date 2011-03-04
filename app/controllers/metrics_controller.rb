@@ -9,7 +9,8 @@ class MetricsController < ApplicationController
   end
 
   def show
-    @metric = @node.metrics.where(:name => params[:id]).limit(1).first
+    @metric = @node.metrics.find_by_key(params[:id])
+    @data_points = @metric.data_points.where(:node_id => @node.id)
     respond_with(@metric)
   end
 
@@ -25,12 +26,12 @@ class MetricsController < ApplicationController
   end
   
   def edit
-    @metric = @node.metrics.find_by_slug(params[:id])
+    @metric = @node.metrics.find_by_key(params[:id])
     respond_with(@metric)
   end
   
   def update
-    @metric = @node.metrics.find_by_slug(params[:id])
+    @metric = @node.metrics.find_by_key(params[:id])
     if @metric.update_attributes(params[:metric])
       flash[:success] = "Metric updated"
       respond_with(@metric, :location => node_metric_url(@node, @metric))
@@ -38,7 +39,7 @@ class MetricsController < ApplicationController
   end
   
   def destroy
-    @metric = @node.metrics.find_by_slug(params[:id])
+    @metric = @node.metrics.find_by_key(params[:id])
     flash[:success] = "Metric destroyed" if @metric.destroy
     respond_with(@metric)
   end
@@ -67,6 +68,6 @@ class MetricsController < ApplicationController
   private
   
   def find_node
-    @node = Node.find_by_slug(params[:node_id])
+    @node = Node.find_by_key(params[:node_id])
   end
 end

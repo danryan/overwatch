@@ -1,7 +1,5 @@
-#!/usr/bin/env ruby
-
-require 'rubygems'
-require 'json'
+# name "Load Average"
+# data run
 
 def run
   regex = Regexp.new(/load averages?: ([\d.]+),? ([\d.]+),? ([\d.]+)\Z/)
