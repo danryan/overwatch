@@ -43,26 +43,50 @@ class MetricsController < ApplicationController
     flash[:success] = "Metric destroyed" if @metric.destroy
     respond_with(@metric)
   end
-  
-  def data
-    @metrics = @node.metrics.where(:name => params[:id])
 
-    return false if @metrics.count == 0
+  def data
+    @metric = @node.metrics.find_by_key(params[:id])
+    @data_points = @metric.data_points.where(:node_id => @node.id)
+    
+    return false if @metric.data_points.count == 0
+    
     @data = []
 
-    index = @metrics.map{|m|m[:data]}.compact.map(&:keys)[0].map(&:to_sym)
-
+    index = @metric.data_points.map(&:key).uniq
+    
     index.each do |i|
       @data << { :name => i, :data => [] }
     end
 
     @data.each do |datum|
-      @metrics.each do |metric|
-        datum[:data] << metric[:data][datum[:name].to_s]
+      @data_points.each do |data_point|
+        datum[:data] << data_point[:value]
       end
     end
     respond_with(@data)
   end
+
+  # old hotness
+  #
+  # def data
+  #   @metrics = @node.metrics.where(:name => params[:id])
+  # 
+  #   return false if @metrics.count == 0
+  #   @data = []
+  # 
+  #   index = @metrics.map{|m|m[:data]}.compact.map(&:keys)[0].map(&:to_sym)
+  # 
+  #   index.each do |i|
+  #     @data << { :name => i, :data => [] }
+  #   end
+  # 
+  #   @data.each do |datum|
+  #     @metrics.each do |metric|
+  #       datum[:data] << metric[:data][datum[:name].to_s]
+  #     end
+  #   end
+  #   respond_with(@data)
+  # end
   
   
   private

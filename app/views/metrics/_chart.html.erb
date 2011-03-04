@@ -2,7 +2,7 @@
   var chart1; // globally available
   var dataz;
   $(document).ready(function() {
-    $.get('<%= data_node_metric_path(@node, @metric, :format => :json) -%>', function(data){
+    $.get('<%= data_node_metric_path(@node.key, @metric, :format => :json) -%>', function(data){
       chart1 = new Highcharts.Chart({
         chart: {
           animation: false,

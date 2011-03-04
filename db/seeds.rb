@@ -17,7 +17,27 @@ while i < 100.0
     :node => node1
   )
   node2.metrics.where(:key => "load-average").first.data_points.create(
+    :key => "Five Minutes", 
+    :value => i,
+    :node => node1
+  )
+  node1.metrics.where(:key => "load-average").first.data_points.create(
+    :key => "Fifteen Minutes", 
+    :value => i,
+    :node => node1
+  )
+  node2.metrics.where(:key => "load-average").first.data_points.create(
     :key => "One Minute", 
+    :value => i,
+    :node => node2
+  )
+  node1.metrics.where(:key => "load-average").first.data_points.create(
+    :key => "Five Minutes", 
+    :value => i,
+    :node => node2
+  )
+  node2.metrics.where(:key => "load-average").first.data_points.create(
+    :key => "Fifteen Minutes", 
     :value => i,
     :node => node2
   )
