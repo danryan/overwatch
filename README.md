@@ -42,3 +42,12 @@ or (load average)
     :node => "71140ea02837012e15ee0025bcdd0280"
   }
 }
+
+
+## How will plugins work?
+
+* Client will `git clone` latest copies of plugins
+* For each plugin, client will IO.read(file) and 
+* @plugins << Plugin.new.instance_eval(file)
+* @plugins.each { |plugin| plugin.phone_home }
+  

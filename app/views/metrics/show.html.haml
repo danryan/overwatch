@@ -1,11 +1,4 @@
 %h1 Node: #{@node.name}
 %h2 Metric: #{@metric.name}    
 
-
-- @data_points.each do |data|
-  = "#{data.key}:#{data.value}"
-  %br
-  
-
-
 = render :partial => "chart"

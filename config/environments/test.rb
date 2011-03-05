@@ -32,4 +32,7 @@ Lansing::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
 end
+
+Lansing.api_endpoint = "http://dev.monitaurapp.com:3000"

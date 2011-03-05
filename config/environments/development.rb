@@ -24,3 +24,4 @@ Lansing::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 end
 
+Lansing.api_endpoint = "http://dev.monitaurapp.com:3000"

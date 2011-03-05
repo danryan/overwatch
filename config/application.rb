@@ -28,4 +28,14 @@ module Lansing
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
   end
+  
+  class << self
+    def api_endpoint
+      @api_endpoint
+    end
+    def api_endpoint=(url)
+      @api_endpoint = url
+    end
+  end
+      
 end

@@ -11,6 +11,28 @@ class Node
   references_and_referenced_in_many :metrics #, :index => true
   references_many :data_points
   
+  after_create :associate_metrics
+  
+  def data_points_for(metric, start_at=(Time.now - 1.hour), end_at=Time.now)
+    self.metrics.where(:key => metric).first.
+      data_points.where(:node_id => self.id).
+      and(:create_at.gt => start_at).
+      and(:created_at.lt => end_at)
+  end
+  
+  def metric(metric)
+    self.metrics.where(:key => metric)
+  end
+  
+  private
+  
+  def associate_metrics
+    Metric.all.each do |metric|
+      self.metrics << metric
+    end
+  end
+  
+  
   # def data(metric_name)
   #     @metrics = self.metrics.where(:name => metric_name)
   # 
