@@ -1,6 +1,0 @@
-%h1 Node: #{@node.name}
-
-%h2 Metrics
-
-- @node.metrics.uniq.each do |metric|
-  = link_to metric.name, node_metric_path(@node.key, metric)
