@@ -6,6 +6,7 @@
       %ul
         - resource.errors.full_messages.each do |msg|
           %li= msg
-  = f.input :name
-  = f.input :ip_address
+  - resource.attributes.each_pair do |field, value|
+    - next if [ '_id', 'id', 'created_at', 'updated_at', 'uuid', 'key', 'node_ids', 'metric_ids' ].include?(field)
+    = f.input field.to_sym
   = f.button :submit

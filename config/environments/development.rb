@@ -1,4 +1,4 @@
-Lansing::Application.configure do
+Monitaur::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -24,4 +24,4 @@ Lansing::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 end
 
-Lansing.api_endpoint = "http://dev.monitaurapp.com:3000"
+Monitaur.api_endpoint = "http://dev.monitaurapp.com:3000"

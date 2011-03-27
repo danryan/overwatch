@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Lansing::Application.load_tasks
+Monitaur::Application.load_tasks

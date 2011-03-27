@@ -10,13 +10,21 @@ gem "bson_ext", "~> 1.2.4"
 gem "haml", "~> 3.0.25"
 gem "simple_form", "~> 1.3.1"
 gem 'vidibus-uuid'
+gem 'inherited_resources', '~> 1.2.1'
+gem 'inherited_resources_views', '~> 0.4.1'
 
-gem "rspec-rails", "~> 2.5.0", :group => [:development, :test]
-gem "cucumber-rails", "~> 0.3.2", :group => [:development, :test]
-gem "factory_girl_rails", "~> 1.0.1", :group => [:development, :test]
-gem "shoulda-matchers", "~> 1.0.0.beta1", :group => [:development, :test]
-gem "capybara", "~> 0.4.0", :group => [:development, :test]
-gem "rails3-generators", :group => [:development, :test]
-gem "haml-rails", :group => [:development, :test]
-gem "hpricot", :group => [:development, :test]
-gem "ruby_parser", :group => [:development, :test]
+group :development, :test do
+  gem 'watchr'
+  gem 'spork', '~> 0.9.0.rc4'
+  gem "mongoid-rspec"                      
+  gem "rspec-rails", "~> 2.5.0"
+  gem "cucumber-rails", "~> 0.3.2"
+  gem "factory_girl_rails", "~> 1.0.1"
+  gem "shoulda-matchers", "~> 1.0.0.beta1"
+  gem "capybara", :git => 'git://github.com/jnicklas/capybara.git'
+  gem "rails3-generators"
+  gem "haml-rails"
+  gem "hpricot"
+  gem "ruby_parser"
+end
+

@@ -1,0 +1,15 @@
+%table{:class => "#{collection.first.class.to_s.downcase.pluralize} collection"}
+  %thead
+    %tr
+      - collection.first.attributes.each_pair do |field, value|
+        - next if ['id', 'created_at', 'updated_at'].include?(field)
+        %th= field.titleize
+  %tbody
+    - collection.each do |r|
+      %tr
+        - r.attributes.each_pair do |field, value|
+          - next if ['id', 'created_at', 'updated_at'].include?(field)
+          %td= value
+        %td= link_to "Show", resource_url(r)
+        %td= link_to "Edit", edit_resource_url(r)
+        %td= link_to "Destroy", resource_url(r), :confirm => 'Are you sure?', :method => :delete

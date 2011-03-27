@@ -1,4 +1,4 @@
-Lansing::Application.configure do
+Monitaur::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's
@@ -32,7 +32,10 @@ Lansing::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-
+  
+  # Reload changed models
+  config.cache_classes = false
+  
 end
 
-Lansing.api_endpoint = "http://dev.monitaurapp.com:3000"
+Monitaur.api_endpoint = "http://dev.monitaurapp.com:3000"

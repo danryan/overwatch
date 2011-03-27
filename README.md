@@ -1,4 +1,4 @@
-# Lansing
+# Monitaur
 
 A monitoring service you can bring home to Mom™
 

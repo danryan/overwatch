@@ -1,4 +1,4 @@
-Lansing::Application.configure do
+Monitaur::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.
@@ -48,4 +48,4 @@ Lansing::Application.configure do
   config.active_support.deprecation = :notify
 end
 
-Lansing.api_endpoint = "https://api.monitaurapp.com"
+Monitaur.api_endpoint = "https://api.monitaurapp.com"
