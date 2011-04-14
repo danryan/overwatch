@@ -3,6 +3,7 @@ require 'haml'
 require 'sinatra/base'
 require 'ohm'
 require 'ohm/contrib'
+require 'hashie'
 
 require 'overwatch/version'
 require 'overwatch/application'
@@ -14,5 +15,5 @@ require 'overwatch/routes/node'
 require 'overwatch/routes/snapshot'
 
 module Overwatch
-  # Your code goes here...
+  # Code goes here
 end

@@ -1,7 +1,7 @@
 module Overwatch
   class Application < Sinatra::Base
 
-    get '/nodes/:name/snapshots?' do |name|
+    get '/nodes/:name/snapshots/?' do |name|
       node = Node.find(:name => name).first
       snapshots = node.snapshots
       snapshots.map { |n| n.to_hash }.to_json
@@ -12,7 +12,7 @@ module Overwatch
       node = Node.find(:name => name).first
       snapshot = Snapshot.new(:data => data, :node => node)
       
-      if snapshot.save
+      if snapshot.save && node.snapshots << snapshot
         snapshot.to_json
       else
         status 422

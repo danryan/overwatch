@@ -12,7 +12,7 @@ module Overwatch
       set :run, false
       set :redis_url, ENV['REDIS_URL'] || 'redis://localhost:6379/0'
       set :show_exceptions, false
-      set :server, %w[thin mongrel webrick]
+      set :server, %w[ thin mongrel webrick ]
       set :raise_errors, false
     end
     
