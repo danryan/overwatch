@@ -1,6 +1,3 @@
-$:.unshift File.expand_path(File.join(File.dirname(__FILE__), "../.."))
-require 'overwatch/models/node'
-
 module Overwatch
   class Snapshot < Ohm::Model
     include Ohm::Timestamping
@@ -13,6 +10,10 @@ module Overwatch
     
     def validate
       assert_present :data
+    end
+    
+    def to_s
+      Hashie::Mash.new(data)
     end
     
     # def to_hash

@@ -26,4 +26,5 @@ Gem::Specification.new do |s|
   s.add_dependency("ohm-contrib", "~> 0.1.1")
   s.add_dependency("nest", "~> 1.1.0")
   s.add_dependency("vegas", "~> 0.1.8")
+  s.add_dependency("hashie", "~> 1.0.0")
 end
