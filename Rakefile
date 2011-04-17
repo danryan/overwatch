@@ -435,7 +435,7 @@ namespace :overwatch do
            "net.inet.tcp.minmss"=>"216",
            "net.inet.tcp.minmssoverload"=>"0",
            "net.inet.tcp.do_tcpdrain"=>"0",
-           "net.inet.tcp.pcbcount"=>"77",
+           "net.inet.tcp.pcbcount"=>"54",
            "net.inet.tcp.icmp_may_rst"=>"1",
            "net.inet.tcp.strict_rfc1948"=>"0",
            "net.inet.tcp.isn_reseed_interval"=>"0",
@@ -562,8 +562,8 @@ namespace :overwatch do
           {"interfaces"=>
             {"lo0"=>
               {"rx"=>
-                {"bytes"=>"11037540",
-                 "packets"=>"31624",
+                {"bytes"=>"52056550",
+                 "packets"=>"36242",
                  "errors"=>"0",
                  "drop"=>0,
                  "overrun"=>0,
@@ -571,8 +571,8 @@ namespace :overwatch do
                  "compressed"=>0,
                  "multicast"=>0},
                "tx"=>
-                {"bytes"=>"11037540",
-                 "packets"=>"31624",
+                {"bytes"=>"52056550",
+                 "packets"=>"36242",
                  "errors"=>"0",
                  "drop"=>0,
                  "overrun"=>0,
@@ -619,8 +619,8 @@ namespace :overwatch do
                  "compressed"=>0}},
              "en1"=>
               {"rx"=>
-                {"bytes"=>"11835669065",
-                 "packets"=>"17513918",
+                {"bytes"=>"12915788662",
+                 "packets"=>"19181009",
                  "errors"=>"0",
                  "drop"=>0,
                  "overrun"=>0,
@@ -628,8 +628,8 @@ namespace :overwatch do
                  "compressed"=>0,
                  "multicast"=>0},
                "tx"=>
-                {"bytes"=>"15303358256",
-                 "packets"=>"17915625",
+                {"bytes"=>"16966829191",
+                 "packets"=>"19663916",
                  "errors"=>"0",
                  "drop"=>0,
                  "overrun"=>0,
@@ -722,7 +722,7 @@ namespace :overwatch do
             "AAAAB3NzaC1kc3MAAACBALG94QjO9R41Ih3RRtbmbGf8y8XLG8eZAEoRxINuMpOT26C9IB1d4tFnKJm0WfDrt0lTH5OmV7Lnt82QdkzqCU5FeYbk1rqelbQIiS3aEQitMM00P9+duFk1WL5gKDOeK2EHUJEKUaPflP694YkbDtZNY/J7UmfNA007uN653ivBAAAAFQC4RmuoJFm+wJcucj0Gbg2KAUq5HQAAAIAhvRb8h/0NH6vJx1X+RehNiRWEwIj1a+ZnfpFulkzKhqb5yQXM4fuEap4dEoRLZHaxdmS0Zxar1pQjr8jGcma3aqp3ttXrNHIiPGEqlaad1/QmK0sRrE5cVEPwV4W+73xKoFk253hoBxujR8qaB8vWRLuY/g5oe6/fgBQ9pOz0JgAAAIAWBs7mMyEbzwLNMqayysNDeNqIwTSEISQVINq9l5XL4viNEvFn1bL4WNhaM927S3/UmDfQuAZXojURoYpxlXH2gycA0FOQ+CHzuSYsc5mDh9KlEb1NGvqytq3cptnIPIjcDackO+gEX9LTzyzzTJ40kZ1EH9QkgTu5pPY5/gpCGg==",
            "host_rsa_public"=>
             "AAAAB3NzaC1yc2EAAAABIwAAAQEAwp+6SsdUVnkGJE793v2+96Mfzz9QQoVja+lpG+hz+GIyO+n+q2IRPExKUis/N1iPqNV+Tc9fqPBUSu1H9kzAAIPPd7Hb+ZqU8WJX/BAfCgEK2SW53aZ2HC1vjndKUtG4RKaOlHJqsg4w0uvnbkX4yRZTtTQaJ+2UGT5TKw7Xf1QXdR3CZozcGgOJn7r0T2M7o240mr9DEn+fL/rzBXhzR86+jOBjzvvjRh6YD1IG00NGyUM0qmGPeIZxCVy16AOBmdib37USpfNv7UrLWWhdYBeALIDsRDyBKRaja337xCp3dCP7T82vLdGaBwhBlp9Mxnv/sqe+PJ2I3/sqyG88oQ=="}},
-       "ohai_time"=>1303018310.140803,
+       "ohai_time"=>1303051271.765905,
        "etc"=>
         {"passwd"=>
           {"_amavisd"=>
@@ -1141,8 +1141,8 @@ namespace :overwatch do
         {"/dev/disk0s2"=>
           {"block_size"=>512,
            "kb_size"=>244781464,
-           "kb_used"=>77925684,
-           "kb_available"=>166599780,
+           "kb_used"=>78046608,
+           "kb_available"=>166478856,
            "percent_used"=>"32%",
            "mount"=>"/",
            "fs_type"=>"hfs",
@@ -1174,20 +1174,58 @@ namespace :overwatch do
            "mount"=>"/home",
            "fs_type"=>"autofs",
            "mount_options"=>["automounted", "nobrowse"]}},
-       "uptime_seconds"=>91421,
-       "uptime"=>"1 day 01 hours 23 minutes 41 seconds",
+       "uptime_seconds"=>124383,
+       "uptime"=>"1 day 10 hours 33 minutes 03 seconds",
        "load_average"=>
-        {"one_minute"=>"0.40 0.71 0.51",
-         "five_minutes"=>nil,
-         "fifteen_minutes"=>nil},
+        {"one_minute"=>"1.10", "five_minutes"=>"1.11", "fifteen_minutes"=>"0.95"},
        "mongo"=>
         {"version"=>"1.8.0",
-         "uptime"=>91399.0,
+         "uptime"=>124361.0,
          "host"=>"ares",
-         "uptime_estimate"=>78056.0,
+         "uptime_estimate"=>81510.0,
          "databases"=>{}},
        "mysql"=>{},
-       "redis"=>{}
+       "redis"=>
+        {"version"=>"2.2.2",
+         "arch_bits"=>"64",
+         "multiplexing_api"=>"kqueue",
+         "process_id"=>"50525",
+         "uptime_in_seconds"=>"124",
+         "uptime_in_days"=>"0",
+         "lru_clock"=>"281703",
+         "used_cpu_sys"=>"0.03",
+         "used_cpu_user"=>"0.02",
+         "used_cpu_sys_childrens"=>"0.00",
+         "used_cpu_user_childrens"=>"0.00",
+         "connected_clients"=>"1",
+         "connected_slaves"=>"0",
+         "client_longest_output_list"=>"0",
+         "client_biggest_input_buf"=>"0",
+         "blocked_clients"=>"0",
+         "used_memory"=>"930624",
+         "used_memory_human"=>"908.81K",
+         "used_memory_rss"=>"1142784",
+         "mem_fragmentation_ratio"=>"1.23",
+         "use_tcmalloc"=>"0",
+         "loading"=>"0",
+         "aof_enabled"=>"0",
+         "changes_since_last_save"=>"0",
+         "bgsave_in_progress"=>"0",
+         "last_save_time"=>"1303051148",
+         "bgrewriteaof_in_progress"=>"0",
+         "total_connections_received"=>"3",
+         "total_commands_processed"=>"2",
+         "expired_keys"=>"0",
+         "evicted_keys"=>"0",
+         "keyspace_hits"=>"0",
+         "keyspace_misses"=>"0",
+         "hash_max_zipmap_entries"=>"512",
+         "hash_max_zipmap_value"=>"64",
+         "pubsub_channels"=>"0",
+         "pubsub_patterns"=>"0",
+         "vm_enabled"=>"0",
+         "role"=>"master"
+        }
       }
       10.times do
         node.snapshots << Overwatch::Snapshot.create(:raw_data => data, :node => node)
