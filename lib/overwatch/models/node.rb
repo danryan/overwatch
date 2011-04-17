@@ -16,9 +16,13 @@ module Overwatch
       snapshots.order_by(:created_at)[-2]
     end # last_update
     
+    def last_update
+      snapshots.order_by(:created_at)[-1]
+    end
+    
     def run_checks
       checks.each do |check|
-        res = check.run(self.snapshots[-1])
+        check.run(last_update)
       end
     end # run_checks
      

@@ -33,7 +33,6 @@ module Overwatch
       self[:conditions] << [:less_than, arg]
       self.save
       self
-      # self[:attribute] < arg
     end
     
     def greater_than(arg)
@@ -56,10 +55,3 @@ module Overwatch
   
   end # class Rule
 end # module Overwatch
-
-# Rule.new(
-#   :attribute => "[:foo][:bar]",
-#   :matcher => :is,
-#   :argument => "baz"
-# )
-
