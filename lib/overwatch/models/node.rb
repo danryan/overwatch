@@ -14,11 +14,11 @@ module Overwatch
     
     def previous_update
       snapshots.order_by(:created_at)[-2]
-    end # last_update
+    end # previous_update
     
     def last_update
       snapshots.order_by(:created_at)[-1]
-    end
+    end # last_update
     
     def run_checks
       checks.each do |check|
