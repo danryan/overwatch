@@ -1,7 +1,7 @@
 module Overwatch
   class Rule
     include Mongoid::Document
-    field :attribute, :type => String
+    field :attr, :type => String
     field :conditions, :type => Array, :default => []
     
     referenced_in :check, :class_name => "Overwatch::Check"
@@ -10,13 +10,13 @@ module Overwatch
       conditions.each do |condition|
         case condition[0]
         when :is
-          return snapshot.data[self[:attribute]] == condition[1]
+          return snapshot.data[self.attr] == condition[1]
         when :is_not
-          return snapshot.data[self[:attribute]] != condition[1]
+          return snapshot.data[self.attr] != condition[1]
         when :greater_than
-          return snapshot.data[self[:attribute]] > condition[1].to_s
+          return snapshot.data[self.attr] > condition[1].to_s
         when :less_than
-          return snapshot.data[self[:attribute]] < condition[1].to_s
+          return snapshot.data[self.attr] < condition[1].to_s
         end
       end
     end
@@ -24,7 +24,7 @@ module Overwatch
     # .if is a essentially a shortcut macro to instantiate a new Rule, save it 
     # and return it, allowing one to chain conditions.
     def self.if(attr)
-      rule = new(:attribute => attr)
+      rule = new(:attr => attr)
       rule.save
       rule
     end
