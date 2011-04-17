@@ -11,10 +11,17 @@ module Overwatch
         if rule.run(snapshot)
           next
         else
+          fire!(rule)
           return false
         end
       end
       return true
+    end
+    
+    def fire!(rule)
+      events.each do |event|
+        event.run(self, rule)
+      end
     end
   end
 end
