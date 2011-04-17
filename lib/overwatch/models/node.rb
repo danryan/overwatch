@@ -16,5 +16,11 @@ module Overwatch
       snapshots.order_by(:created_at)[-2]
     end # last_update
     
+    def run_checks
+      checks.each do |check|
+        res = check.run(self.snapshots[-1])
+      end
+    end # run_checks
+     
   end # class Node
 end # module Overwatch
