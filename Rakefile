@@ -1231,5 +1231,19 @@ namespace :overwatch do
         node.snapshots << Overwatch::Snapshot.create(:raw_data => data, :node => node)
       end
     end  
+    check1 = Overwatch::Check.create
+    check2 = Overwatch::Check.create
+    check3 = Overwatch::Check.create
+    
+    checks = [ check1, check2, check3 ]
+    checks.each do |check|
+      check.rules << Overwatch::Rule.if("redis.version").is("2.2.2")
+      check.rules << Overwatch::Rule.if("mongo.version").less_than("1.9.0")
+      
+      nodes.each do |node|
+        check.nodes << node
+        node.checks << check
+      end
+    end
   end
 end

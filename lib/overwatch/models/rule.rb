@@ -33,9 +33,6 @@ module Overwatch
       self[:conditions] << [:less_than, arg]
       self.save
       valid_types = [Fixnum, Float, Bignum, Numeric, Rational]
-      unless valid_types.include?(arg.class)
-        raise ArgumentError, "argument must be a type of #{valid_types.join(',')}"
-      end
       self
       # self[:attribute] < arg
     end
@@ -44,9 +41,6 @@ module Overwatch
       self[:conditions] << [:greater_than, arg]
       self.save
       valid_types = [Fixnum, Float, Bignum, Numeric, Rational]
-      unless valid_types.include?(arg.class)
-        raise ArgumentError, "argument must be a type of #{valid_types.join(', ')}"
-      end
       self
     end
     
