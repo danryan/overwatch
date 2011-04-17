@@ -19,11 +19,9 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   
-  s.add_dependency("hiredis", "~> 0.3.1")
-  s.add_dependency("redis", "~> 2.2.0")
+  s.add_dependency("mongoid", "~> 2.0.0")
+  s.add_dependency("bson_ext")
   s.add_dependency("sinatra", "~> 1.2.1")
-  s.add_dependency("ohm", "~> 0.1.3")
-  s.add_dependency("ohm-contrib", "~> 0.1.1")
   s.add_dependency("nest", "~> 1.1.0")
   s.add_dependency("vegas", "~> 0.1.8")
   s.add_dependency("hashie", "~> 1.0.0")

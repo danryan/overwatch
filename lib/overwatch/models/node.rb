@@ -1,34 +1,19 @@
-$:.unshift File.expand_path(File.join(File.dirname(__FILE__), "../.."))
-require 'overwatch/models/snapshot'
-
 module Overwatch
-  class Node < Ohm::Model
-    include Ohm::Timestamping
-    include Ohm::Typecast
-    include Ohm::Callbacks
-    include Ohm::ExtraValidations
-    include Ohm::Slug
+  class Node
+    include Mongoid::Document
+    include Mongoid::Timestamps
     
-    attribute :name, String
-    list :snapshots, Snapshot
+    field :name, :type => String
     index :name
     
-    def to_hash
-      super.merge(:name => name)
-    end # to_hash
+    references_many :snapshots, :class_name => "Overwatch::Snapshot"
+    references_and_referenced_in_many :checks, :class_name => "Overwatch::Check"
     
-    def to_s
-      name.to_s
-    end # to_s
-
-    def validate
-      # super
-      assert_present :name
-      assert_unique :name
-    end # validate
+    validates_presence_of :name
+    validates_uniqueness_of :name
     
-    def last_update
-      return self.snapshots[-2]
+    def previous_update
+      snapshots.order_by(:created_at)[-2]
     end # last_update
     
   end # class Node

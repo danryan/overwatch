@@ -1,24 +1,37 @@
 module Overwatch
-  class Snapshot < Ohm::Model
-    include Ohm::Timestamping
-    include Ohm::Typecast
-    include Ohm::Callbacks
-    include Ohm::ExtraValidations
+  class Snapshot
+    include Mongoid::Document
+    include Mongoid::Timestamps::Created
     
-    attribute :data, Hash
-    reference :node, Node
+    attr_accessor :raw_data
+    field :data, :type => Hash
+    referenced_in :node, :class_name => "Overwatch::Node"
     
-    def validate
-      assert_present :data
+    before_save :serialize_data
+    
+    def serialize_data
+      self[:data] = YAML.dump(to_dotted_hash(self.raw_data))
     end
     
-    def to_s
-      Hashie::Mash.new(data)
+    def to_dotted_hash(source, target = {}, namespace = nil)
+      prefix = "#{namespace}." if namespace
+      case source
+      when Hash
+        source.each do |key, value|
+          to_dotted_hash(value, target, "#{prefix}#{key}")
+        end
+      when Array
+        source.each_with_index do |value, index|
+          to_dotted_hash(value, target, "#{prefix}#{index}")
+        end
+      else
+        target[namespace] = source
+      end
+      target
+    end # to_dotted_hash
+    
+    def data
+      YAML.load(self[:data])
     end
-    
-    # def to_hash
-    #   super.merge(:data => data)
-    # end # to_hash
-    
-  end # class Snapshot
+  end # class Snapshot 
 end # module Overwatch

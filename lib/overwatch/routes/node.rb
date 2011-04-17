@@ -6,12 +6,12 @@ module Overwatch
       if nodes.size == 0
         halt 404
       else
-        nodes.map { |n| n.to_hash }.to_json
+        nodes.to_json
       end
     end # GET index
 
     get '/nodes/:name/?' do |name|
-      node = Overwatch::Node.find(:name => name).first
+      node = Overwatch::Node.where(:name => name).first
       if node
         status 200
         node.to_json
@@ -28,7 +28,7 @@ module Overwatch
         node.to_json
       else
         status 422
-        format_errors(node).to_json
+        node.errors.to_json
       end
     end # POST
 
@@ -40,11 +40,10 @@ module Overwatch
           body node.to_json
         else
           status 409
-          body format_errors(node).to_json
+          node.errors.to_json
         end
       else
-        status 404
-        body "Node not found".to_json
+        halt 404
       end
     end # DELETE
 
