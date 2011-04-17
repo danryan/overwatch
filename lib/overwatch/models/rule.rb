@@ -32,7 +32,6 @@ module Overwatch
     def less_than(arg)
       self[:conditions] << [:less_than, arg]
       self.save
-      valid_types = [Fixnum, Float, Bignum, Numeric, Rational]
       self
       # self[:attribute] < arg
     end
@@ -40,7 +39,6 @@ module Overwatch
     def greater_than(arg)
       self[:conditions] << [:greater_than, arg]
       self.save
-      valid_types = [Fixnum, Float, Bignum, Numeric, Rational]
       self
     end
     

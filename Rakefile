@@ -15,7 +15,8 @@ namespace :overwatch do
     host2 = Overwatch::Node.create(:name => "host2.example.com")
     host3 = Overwatch::Node.create(:name => "host3.example.com")
     
-    [host1, host2, host3].each do |node|
+    nodes = [host1, host2, host3]
+    nodes.each do |node|
       data = {"languages"=>
         {"ruby"=>
           {"platform"=>"x86_64-darwin10.7.3",
