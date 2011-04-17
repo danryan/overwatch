@@ -4,7 +4,7 @@ module Overwatch
       puts "holy jesus!"
       puts "#{check.inspect}"
       puts "#{rule.inspect}"
-      super
+      # super
     end
   end
 end

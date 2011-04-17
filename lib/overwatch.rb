@@ -2,6 +2,8 @@ require 'yajl'
 require 'haml'
 require 'sinatra/base'
 require 'mongoid'
+require 'bson'
+require 'mail'
 
 # require 'overwatch/core_ext/object'
 

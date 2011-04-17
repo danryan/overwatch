@@ -8,8 +8,8 @@ module Overwatch
     field :body, :type => String
     field :recipients, :type => Array
     
-    def run
+    # def run
       
-    end
+    # end
   end # Event
 end # Overwatch
