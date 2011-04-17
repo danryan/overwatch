@@ -1,10 +1,10 @@
 module Overwatch
   class Event::STDOUT < Event
-    def run(check, rule)
+    def run(snapshot, check, rule)
       puts "holy jesus!"
       puts "#{check.inspect}"
       puts "#{rule.inspect}"
-      # super
+      super
     end
   end
 end

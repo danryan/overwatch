@@ -5,11 +5,7 @@ module Overwatch
 
     references_and_referenced_in_many :checks, :class_name => "Overwatch::Check"
     
-    field :body, :type => String
-    field :recipients, :type => Array
-    
-    # def run
-      
-    # end
+    def run(snapshot, check, node)
+    end
   end # Event
 end # Overwatch

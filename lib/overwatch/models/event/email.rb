@@ -1,22 +1,16 @@
 module Overwatch
   class Event::Email < Event
-    def run(check, rule)
+    field :recipients, :type => Array
+
+    def run(snapshot, check, rule)
       Mail.defaults do
-        delivery_method :smtp, {
-          :address => "smtp.gmail.com",
-          :port => 587,
-          :domain => "appliedawesome.com",
-          :user_name => "dan@appliedawesome.com",
-          :password => "Bos9eeCa",
-          :authentication => "plain",
-          :enable_starttls_auto => true
-        }
+        delivery_method :smtp, Overwatch.config["mail"].symbolize_keys
       end
       mail = Mail.new
       mail.from "dan@appliedawesome.com"
       mail.to self.recipients
-      mail.subject "Check failed! #{rule.to_s}"
-      mail.body "#{rule.inspect}"
+      mail.subject "[Overwatch] #{rule.to_s} failed on #{snapshot.node.name}!"
+      mail.body "What we checked: #{rule.to_s}\nWhat we saw: #{snapshot.data[rule.attr]}"
       mail.deliver!
       # super
     end # run
