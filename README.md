@@ -75,11 +75,6 @@ An event is the action that occurs if a check run fails. Events can send emails,
     # What we checked: load_average.five_min is less than 0.5
     # What we saw: 0.96
     
-    
-    
-# introduce failure
-check1.rules << Overwatch::Rule.create(:attr => "redis.version").greater_than("2.2.4")
-
 ## Installation
 
     git clone git://github.com/danryan/overwatch.git
