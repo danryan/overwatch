@@ -14,15 +14,15 @@ module Overwatch
     
     def previous_update
       snapshots.order_by(:created_at)[-2]
-    end # previous_update
+    end
     
     def last_update
       snapshots.order_by(:created_at)[-1]
-    end # last_update
+    end
     
     def run_checks
       Resque.enqueue(CheckRun, self._id.to_s)
-    end # run_checks
+    end
      
   end # class Node
 end # module Overwatch
