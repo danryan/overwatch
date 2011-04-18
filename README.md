@@ -6,23 +6,25 @@ Overwatch is a monitoring application designed for flexibility in all aspects, f
 
 ## Terminology
 
+This is but a brief overview. For more details, consult the wiki.
+
 ### Node
 
 A node is a server upon which the client runs. Overwatch monitors a node by parsing its snapshots
 
-## Snapshot
+### Snapshot
 
 A snapshot is a hash, a point in time of the node's history, sent to Overwatch by the client. Overwatch runs a snapshot through all of a node's checks.
 
-## Check
+### Check
 
 A check is collection of rules. Checks can be associated with one or more nodes.
 
-## Rule
+### Rule
 
 A rule is three parts: an attribute of the node, a condition, and an expectation. Every snapshot is checked against the rules of a check. If a rule returns false, the check fails and an event is fired.
 
-## Event
+### Event
 
 An event is the action that occurs if a check run fails. Events can send emails, text message, a payload to another web app, log to a server, and anything else you can think of. You can write any event type you want so long as it responds to `#run`.
 
