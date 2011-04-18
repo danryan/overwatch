@@ -21,13 +21,7 @@ module Overwatch
     end # last_update
     
     def run_checks
-      checks.each do |check|
-        if check.run(last_update)
-          return true
-        else
-          return false
-        end
-      end
+      Resque.enqueue(CheckRun, self._id.to_s)
     end # run_checks
      
   end # class Node

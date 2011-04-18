@@ -3,6 +3,7 @@ Bundler::GemHelper.install_tasks
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "lib"))
 require 'overwatch'
+require 'resque/tasks'
 
 namespace :overwatch do 
   desc "Load up sample data"

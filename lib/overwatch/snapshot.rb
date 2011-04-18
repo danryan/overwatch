@@ -8,6 +8,7 @@ module Overwatch
     referenced_in :node, :class_name => "Overwatch::Node"
     
     before_save :serialize_data
+    after_save :run_checks
     
     def serialize_data
       self[:data] = YAML.dump(to_dotted_hash(self.raw_data))
@@ -32,6 +33,10 @@ module Overwatch
     
     def data
       YAML.load(self[:data])
+    end
+    
+    def run_checks
+      self.node.run_checks
     end
   end # class Snapshot 
 end # module Overwatch

@@ -14,7 +14,7 @@ require 'overwatch/node'
 require 'overwatch/snapshot'
 require 'overwatch/check'
 require 'overwatch/rule'
-                   
+require 'overwatch/check_run'
 require 'overwatch/event'
 require 'overwatch/event/email'
 require 'overwatch/event/sms'
