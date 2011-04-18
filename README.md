@@ -4,6 +4,12 @@
 
 Overwatch is a monitoring application designed for flexibility in all aspects, from how data is collected to the way notifications are handled.
 
+## Impetus
+
+"Why another monitoring app?" 
+
+Honestly, I'm not happy with any other monitoring application out there. They're either  a royal pain to configure, setup and maintain, or sorely lack features that should exist in today's server landscape. Overwatch is the scratch to an itch I've had for a while.
+
 ## Terminology
 
 This is but a brief overview. For more details, consult the wiki.
@@ -84,3 +90,4 @@ An event is the action that occurs if a check run fails. Events can send emails,
     rackup
     
 More to come!
+
