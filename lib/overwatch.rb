@@ -34,5 +34,9 @@ module Overwatch
     def config
       @config ||= YAML.load_file(config_file_path)
     end
+    
+    def redis
+      @redis = Redis.new
+    end
   end
 end

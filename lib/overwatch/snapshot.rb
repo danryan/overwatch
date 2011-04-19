@@ -4,16 +4,17 @@ module Overwatch
     include Mongoid::Timestamps::Created
     
     attr_accessor :raw_data
-    field :data, :type => Hash
+    # field :data, :type => Hash
     referenced_in :node, :class_name => "Overwatch::Node"
     
-    before_save :serialize_data
+    before_save :parse_data
     after_save :run_checks
-    
-    def serialize_data
-      self[:data] = YAML.dump(to_dotted_hash(self.raw_data))
+
+    def parse_data
+      data = to_dotted_hash(self.raw_data)
+      Overwatch.redis.mapped_hmset "snapshots:#{self._id}:data", data
     end
-    
+      
     def to_dotted_hash(source, target = {}, namespace = nil)
       prefix = "#{namespace}." if namespace
       case source
@@ -32,7 +33,7 @@ module Overwatch
     end # to_dotted_hash
     
     def data
-      YAML.load(self[:data])
+      Overwatch.redis.hgetall "snapshots:#{self._id}:data"
     end
     
     def run_checks

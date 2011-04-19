@@ -9,8 +9,15 @@ module Overwatch
       snapshots = node.snapshots.where(
         :created_at.gte => params['start_at'] || (DateTime.now - 1.hour),
         :created_at.lte => params['end_at'] || DateTime.now)
-      
-      snapshots.to_json(:only => [ :_id, :created_at ])
+      if params['attribute']
+        attr = params['attribute']
+        results = snapshots.inject([]) do |ret, snap|
+          ret << { :_id => snap[:_id], :created_at => snap[:created_at], :attribute => attr, :value => snap.data[attr] }
+        end
+        results.to_json(:only => [ :_id, :created_at, :attribute, :value ])
+      else
+        snapshots.to_json(:only => [ :_id, :created_at ])
+      end
     end # GET index
 
     post '/nodes/:name/snapshots/?' do |name|
