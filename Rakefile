@@ -10,7 +10,7 @@ namespace :overwatch do
   desc "Load up sample data"
   task :data do
     require 'yaml'
-    DATA = YAML.load_file(File.join(__FILE__), "spec/support/data.yml")
+    DATA = YAML.load_file(File.join(__FILE__, "spec/support/data.yml"))
     
     Mongoid.master.collections.select do |collection|
       collection.drop unless collection.name =~ /system/
