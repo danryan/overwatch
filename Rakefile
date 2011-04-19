@@ -10,10 +10,10 @@ namespace :overwatch do
   desc "Load up sample data"
   task :data do
     require 'yaml'
-    DATA = YAML.load_file(File.join(__FILE__, "spec/support/data.yml"))
+    DATA = YAML.load_file(File.join(File.dirname(__FILE__), "spec/support/data.yml"))
     
     Mongoid.master.collections.select do |collection|
-      collection.drop unless collection.name =~ /system/
+      collection.drop unless collection.name =~ /(system|local)/
     end
     host1 = Overwatch::Node.create(:name => "host1.example.com")
     host2 = Overwatch::Node.create(:name => "host2.example.com")
@@ -21,9 +21,9 @@ namespace :overwatch do
     
     nodes = [host1, host2, host3]
     nodes.each do |node|
-      1000.times do
+      10.times do
         puts "Adding snapshot"
-        node.snapshots << Overwatch::Snapshot.create(:raw_data => DATA, :node => node)
+        node.snapshots << Overwatch::Snapshot.create(DATA)
       end
     end  
     check1 = Overwatch::Check.create
