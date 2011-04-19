@@ -1,0 +1,1827 @@
+--- 
+mongo: 
+  databases: {}
+
+  uptime_estimate: 81510.0
+  version: 1.8.0
+  host: ares
+  uptime: 124361.0
+keys: 
+  ssh: 
+    host_dsa_public: AAAAB3NzaC1kc3MAAACBALG94QjO9R41Ih3RRtbmbGf8y8XLG8eZAEoRxINuMpOT26C9IB1d4tFnKJm0WfDrt0lTH5OmV7Lnt82QdkzqCU5FeYbk1rqelbQIiS3aEQitMM00P9+duFk1WL5gKDOeK2EHUJEKUaPflP694YkbDtZNY/J7UmfNA007uN653ivBAAAAFQC4RmuoJFm+wJcucj0Gbg2KAUq5HQAAAIAhvRb8h/0NH6vJx1X+RehNiRWEwIj1a+ZnfpFulkzKhqb5yQXM4fuEap4dEoRLZHaxdmS0Zxar1pQjr8jGcma3aqp3ttXrNHIiPGEqlaad1/QmK0sRrE5cVEPwV4W+73xKoFk253hoBxujR8qaB8vWRLuY/g5oe6/fgBQ9pOz0JgAAAIAWBs7mMyEbzwLNMqayysNDeNqIwTSEISQVINq9l5XL4viNEvFn1bL4WNhaM927S3/UmDfQuAZXojURoYpxlXH2gycA0FOQ+CHzuSYsc5mDh9KlEb1NGvqytq3cptnIPIjcDackO+gEX9LTzyzzTJ40kZ1EH9QkgTu5pPY5/gpCGg==
+    host_rsa_public: AAAAB3NzaC1yc2EAAAABIwAAAQEAwp+6SsdUVnkGJE793v2+96Mfzz9QQoVja+lpG+hz+GIyO+n+q2IRPExKUis/N1iPqNV+Tc9fqPBUSu1H9kzAAIPPd7Hb+ZqU8WJX/BAfCgEK2SW53aZ2HC1vjndKUtG4RKaOlHJqsg4w0uvnbkX4yRZTtTQaJ+2UGT5TKw7Xf1QXdR3CZozcGgOJn7r0T2M7o240mr9DEn+fL/rzBXhzR86+jOBjzvvjRh6YD1IG00NGyUM0qmGPeIZxCVy16AOBmdib37USpfNv7UrLWWhdYBeALIDsRDyBKRaja337xCp3dCP7T82vLdGaBwhBlp9Mxnv/sqe+PJ2I3/sqyG88oQ==
+dmi: {}
+
+kernel: 
+  modules: 
+    com.apple.driver.AppleAPIC: 
+      size: 12288
+      version: "1.4"
+      index: "23"
+      refcount: "0"
+    com.apple.driver.AppleIntelCPUPowerManagement: 
+      size: 147456
+      version: 142.4.1
+      index: "11"
+      refcount: "0"
+    com.apple.iokit.IOPCIFamily: 
+      size: 90112
+      version: 2.6.2
+      index: "9"
+      refcount: "33"
+    com.apple.iokit.IOAHCIBlockStorage: 
+      size: 86016
+      version: 1.6.3
+      index: "48"
+      refcount: "0"
+    com.apple.driver.AppleProfileTimestampAction: 
+      size: 8192
+      version: "10"
+      index: "114"
+      refcount: "0"
+    com.apple.driver.AppleProfileRegisterStateAction: 
+      size: 8192
+      version: "10"
+      index: "111"
+      refcount: "0"
+    com.apple.iokit.IOSurface: 
+      size: 49152
+      version: "74.2"
+      index: "99"
+      refcount: "0"
+    com.apple.driver.AppleBacklightExpert: 
+      size: 8192
+      version: 1.0.1
+      index: "80"
+      refcount: "1"
+    com.apple.iokit.IOSMBusFamily: 
+      size: 8192
+      version: "1.1"
+      index: "24"
+      refcount: "3"
+    com.apple.iokit.IOAHCIFamily: 
+      size: 28672
+      version: 2.0.5
+      index: "35"
+      refcount: "3"
+    com.apple.driver.AppleSmartBatteryManager: 
+      size: 32768
+      version: 160.0.0
+      index: "37"
+      refcount: "0"
+    com.apple.driver.AppleIntelSNBGraphicsFB: 
+      size: 172032
+      version: 6.3.2
+      index: "72"
+      refcount: "0"
+    com.apple.iokit.CHUDUtils: 
+      size: 36864
+      version: "364"
+      index: "16"
+      refcount: "0"
+    com.apple.kext.ATISupport: 
+      size: 1159168
+      version: 6.3.2
+      index: "75"
+      refcount: "2"
+    com.apple.iokit.IOUSBFamily: 
+      size: 237568
+      version: 4.2.0
+      index: "32"
+      refcount: "13"
+    com.apple.driver.AppleEFINVRAM: 
+      size: 28672
+      version: 1.4.0
+      index: "38"
+      refcount: "0"
+    org.virtualbox.kext.VBoxNetAdp: 
+      size: 12288
+      version: 4.0.4
+      index: "132"
+      refcount: "0"
+    com.apple.filesystems.autofs: 
+      size: 40960
+      version: 2.1.0
+      index: "128"
+      refcount: "0"
+    com.apple.kext.ATIFramebuffer: 
+      size: 81920
+      version: 6.3.2
+      index: "107"
+      refcount: "0"
+    com.apple.security.sandbox: 
+      size: 32768
+      version: "1"
+      index: "21"
+      refcount: "0"
+    com.apple.iokit.IOStorageFamily: 
+      size: 106496
+      version: 1.6.3
+      index: "12"
+      refcount: "9"
+    com.apple.iokit.IOSCSIArchitectureModelFamily: 
+      size: 102400
+      version: 2.6.6
+      index: "49"
+      refcount: "3"
+    com.apple.driver.AppleHPET: 
+      size: 12288
+      version: "1.5"
+      index: "27"
+      refcount: "0"
+    com.apple.kext.ATI6000Controller: 
+      size: 172032
+      version: 6.3.2
+      index: "76"
+      refcount: "0"
+    com.apple.kext.OSvKernDSPLib: 
+      size: 20480
+      version: "1.3"
+      index: "93"
+      refcount: "2"
+    com.apple.iokit.IOGraphicsFamily: 
+      size: 163840
+      version: "2.2"
+      index: "71"
+      refcount: "16"
+    com.apple.driver.AppleProfileCallstackAction: 
+      size: 12288
+      version: "20"
+      index: "109"
+      refcount: "0"
+    com.apple.driver.AppleMCCSControl: 
+      size: 32768
+      version: 1.0.17
+      index: "105"
+      refcount: "0"
+    com.apple.iokit.IOUSBHIDDriver: 
+      size: 24576
+      version: 4.2.0
+      index: "62"
+      refcount: "4"
+    com.apple.driver.AppleUSBMultitouch: 
+      size: 53248
+      version: "207.5"
+      index: "66"
+      refcount: "0"
+    org.virtualbox.kext.VBoxUSB: 
+      size: 32768
+      version: 4.0.4
+      index: "130"
+      refcount: "0"
+    com.apple.driver.AudioAUUC: 
+      size: 20480
+      version: "1.54"
+      index: "112"
+      refcount: "0"
+    com.apple.driver.AppleACPIButtons: 
+      size: 16384
+      version: 1.3.6
+      index: "30"
+      refcount: "0"
+    com.apple.driver.AppleFWOHCI: 
+      size: 163840
+      version: 4.7.3
+      index: "45"
+      refcount: "0"
+    com.apple.security.TMSafetyNet: 
+      size: 12288
+      version: "6"
+      index: "18"
+      refcount: "0"
+    com.apple.iokit.IONDRVSupport: 
+      size: 57344
+      version: "2.2"
+      index: "73"
+      refcount: "6"
+    com.apple.BootCache: 
+      size: 16384
+      version: "31"
+      index: "52"
+      refcount: "0"
+    com.apple.iokit.IOUSBUserClient: 
+      size: 8192
+      version: 4.2.0
+      index: "46"
+      refcount: "1"
+    com.apple.driver.AppleProfileReadCounterAction: 
+      size: 12288
+      version: "17"
+      index: "118"
+      refcount: "0"
+    com.apple.iokit.IOACPIFamily: 
+      size: 16384
+      version: 1.3.0
+      index: "8"
+      refcount: "23"
+    com.apple.iokit.IOBDStorageFamily: 
+      size: 28672
+      version: "1.6"
+      index: "57"
+      refcount: "1"
+    org.virtualbox.kext.VBoxNetFlt: 
+      size: 20480
+      version: 4.0.4
+      index: "131"
+      refcount: "0"
+    com.apple.driver.AppleMikeyHIDDriver: 
+      size: 12288
+      version: 1.2.0
+      index: "120"
+      refcount: "0"
+    com.apple.driver.AppleThunderboltNHI: 
+      size: 49152
+      version: 1.1.9
+      index: "101"
+      refcount: "0"
+    com.apple.driver.AppleIntelHDGraphics: 
+      size: 872448
+      version: 6.3.2
+      index: "74"
+      refcount: "0"
+    com.apple.iokit.IONetworkingFamily: 
+      size: 106496
+      version: "1.10"
+      index: "39"
+      refcount: "5"
+    com.apple.filesystems.afpfs: 
+      size: 331776
+      version: "9.7"
+      index: "134"
+      refcount: "0"
+    com.apple.iokit.IOThunderboltFamily: 
+      size: 327680
+      version: 1.2.2
+      index: "100"
+      refcount: "5"
+    com.apple.driver.AppleSDXC: 
+      size: 61440
+      version: 1.0.2
+      index: "43"
+      refcount: "0"
+    com.apple.driver.AirPort.Brcm4331: 
+      size: 1904640
+      version: 429.10.2
+      index: "42"
+      refcount: "0"
+    com.apple.iokit.IOSCSIMultimediaCommandsDevice: 
+      size: 77824
+      version: 2.6.6
+      index: "58"
+      refcount: "0"
+    com.apple.iokit.IOCDStorageFamily: 
+      size: 36864
+      version: 1.6.1
+      index: "55"
+      refcount: "3"
+    com.apple.driver.AppleUpstreamUserClient: 
+      size: 20480
+      version: 3.5.4
+      index: "106"
+      refcount: "0"
+    com.apple.driver.AudioIPCDriver: 
+      size: 16384
+      version: 1.1.6
+      index: "95"
+      refcount: "0"
+    com.apple.driver.AppleIRController: 
+      size: 20480
+      version: "303.8"
+      index: "63"
+      refcount: "0"
+    com.apple.driver.AppleProfileKEventAction: 
+      size: 8192
+      version: "10"
+      index: "110"
+      refcount: "0"
+    com.apple.iokit.CHUDProf: 
+      size: 53248
+      version: "366"
+      index: "15"
+      refcount: "0"
+    com.apple.driver.AppleIntelCPUPowerManagementClient: 
+      size: 12288
+      version: 142.4.1
+      index: "22"
+      refcount: "0"
+    com.apple.driver.AppleThunderboltDPAdapterFamily: 
+      size: 12288
+      version: 1.1.1
+      index: "125"
+      refcount: "2"
+    com.apple.iokit.AppleProfileFamily: 
+      size: 217088
+      version: "41.4"
+      index: "87"
+      refcount: "6"
+    com.apple.driver.AppleUSBTCButtons: 
+      size: 12288
+      version: "201.2"
+      index: "70"
+      refcount: "0"
+    com.apple.driver.AppleSMBIOS: 
+      size: 16384
+      version: "1.7"
+      index: "26"
+      refcount: "0"
+    com.apple.ATIRadeonX3000: 
+      size: 2715648
+      version: 6.3.2
+      index: "79"
+      refcount: "0"
+    com.apple.driver.AppleACPIPlatform: 
+      size: 282624
+      version: 1.3.6
+      index: "10"
+      refcount: "2"
+    com.apple.iokit.IOAHCISerialATAPI: 
+      size: 36864
+      version: 1.2.5
+      index: "50"
+      refcount: "0"
+    com.apple.iokit.SCSITaskUserClient: 
+      size: 28672
+      version: 2.6.6
+      index: "59"
+      refcount: "0"
+    com.apple.driver.AppleThunderboltDPInAdapter: 
+      size: 12288
+      version: 1.1.1
+      index: "126"
+      refcount: "1"
+    com.apple.iokit.CHUDKernLib: 
+      size: 24576
+      version: "365"
+      index: "14"
+      refcount: "2"
+    com.apple.iokit.IOHIDFamily: 
+      size: 274432
+      version: 1.6.6
+      index: "29"
+      refcount: "7"
+    com.apple.driver.AppleACPIEC: 
+      size: 24576
+      version: 1.3.6
+      index: "25"
+      refcount: "0"
+    com.apple.driver.DiskImages: 
+      size: 73728
+      version: "289"
+      index: "13"
+      refcount: "0"
+    com.apple.driver.AppleLPC: 
+      size: 12288
+      version: 1.5.1
+      index: "83"
+      refcount: "0"
+    com.apple.iokit.IODVDStorageFamily: 
+      size: 28672
+      version: "1.6"
+      index: "56"
+      refcount: "2"
+    com.apple.driver.AppleThunderboltDPOutAdapter: 
+      size: 32768
+      version: 1.1.1
+      index: "127"
+      refcount: "0"
+    com.apple.driver.AppleProfileThreadInfoAction: 
+      size: 8192
+      version: "14"
+      index: "113"
+      refcount: "0"
+    com.apple.iokit.IOFireWireIP: 
+      size: 36864
+      version: 2.0.3
+      index: "102"
+      refcount: "0"
+    com.apple.iokit.IOSerialFamily: 
+      size: 40960
+      version: 10.0.3
+      index: "97"
+      refcount: "1"
+    com.apple.driver.XsanFilter: 
+      size: 12288
+      version: "402.1"
+      index: "54"
+      refcount: "0"
+    com.apple.driver.AppleUSBTCKeyboard: 
+      size: 16384
+      version: "201.2"
+      index: "64"
+      refcount: "0"
+    com.apple.driver.AppleEFIRuntime: 
+      size: 12288
+      version: 1.4.0
+      index: "31"
+      refcount: "1"
+    com.apple.driver.AppleAHCIPort: 
+      size: 94208
+      version: 2.1.6
+      index: "36"
+      refcount: "0"
+    com.apple.driver.AppleUSBEHCI: 
+      size: 94208
+      version: 4.2.0
+      index: "34"
+      refcount: "0"
+    org.virtualbox.kext.VBoxDrv: 
+      size: 176128
+      version: 4.0.4
+      index: "129"
+      refcount: "3"
+    com.apple.security.quarantine: 
+      size: 16384
+      version: "0"
+      index: "20"
+      refcount: "0"
+    com.apple.iokit.IO80211Family: 
+      size: 151552
+      version: "320.1"
+      index: "41"
+      refcount: "1"
+    com.apple.nke.applicationfirewall: 
+      size: 32768
+      version: 2.1.11
+      index: "17"
+      refcount: "0"
+    com.apple.driver.AppleThunderboltPCIDownAdapter: 
+      size: 12288
+      version: 1.0.5
+      index: "124"
+      refcount: "0"
+    com.apple.driver.AppleUSBHub: 
+      size: 73728
+      version: 4.2.0
+      index: "47"
+      refcount: "0"
+    com.apple.iokit.IOFireWireFamily: 
+      size: 307200
+      version: 4.2.6
+      index: "44"
+      refcount: "2"
+    com.apple.driver.AppleUSBComposite: 
+      size: 16384
+      version: 3.9.0
+      index: "60"
+      refcount: "1"
+    com.apple.driver.AGPM: 
+      size: 49152
+      version: 100.12.31
+      index: "121"
+      refcount: "0"
+    com.apple.driver.AppleGraphicsControl: 
+      size: 122880
+      version: 2.10.5
+      index: "82"
+      refcount: "0"
+    com.apple.driver.AppleRTC: 
+      size: 24576
+      version: 1.3.1
+      index: "28"
+      refcount: "0"
+    com.apple.driver.AppleUSBMergeNub: 
+      size: 20480
+      version: 4.2.0
+      index: "61"
+      refcount: "0"
+  machine: x86_64
+  name: Darwin
+  os: Darwin
+  version: "Darwin Kernel Version 10.7.3: Sun Mar  6 13:37:56 PST 2011; root:xnu-1504.14.2~1/RELEASE_X86_64"
+  release: 10.7.3
+platform_version: 10.6.7
+fqdn: ares
+mysql: {}
+
+filesystem: 
+  map -hosts: 
+    kb_size: 0
+    kb_available: 0
+    mount_options: 
+    - nosuid
+    - automounted
+    - nobrowse
+    fs_type: autofs
+    mount: /net
+    percent_used: 100%
+    kb_used: 0
+    block_size: 512
+  map auto_home: 
+    kb_size: 0
+    kb_available: 0
+    mount_options: 
+    - automounted
+    - nobrowse
+    fs_type: autofs
+    mount: /home
+    percent_used: 100%
+    kb_used: 0
+    block_size: 512
+  devfs: 
+    kb_size: 184
+    kb_available: 0
+    mount_options: 
+    - local
+    - nobrowse
+    fs_type: devfs
+    mount: /dev
+    percent_used: 100%
+    kb_used: 184
+    block_size: 512
+  /dev/disk0s2: 
+    kb_size: 244781464
+    kb_available: 166478856
+    mount_options: 
+    - local
+    - journaled
+    fs_type: hfs
+    mount: /
+    percent_used: 32%
+    kb_used: 78046608
+    block_size: 512
+command: 
+  ps: ps -ef
+ipaddress: 10.0.1.140
+counters: 
+  network: 
+    interfaces: 
+      stf0: 
+        tx: 
+          packets: "0"
+          bytes: "0"
+          compressed: 0
+          collisions: "0"
+          carrier: 0
+          errors: "0"
+          overrun: 0
+          drop: 0
+        rx: 
+          packets: "0"
+          bytes: "0"
+          compressed: 0
+          errors: "0"
+          overrun: 0
+          multicast: 0
+          frame: 0
+          drop: 0
+      vboxnet0: 
+        tx: 
+          packets: "0"
+          bytes: "0"
+          compressed: 0
+          collisions: "0"
+          carrier: 0
+          errors: "0"
+          overrun: 0
+          drop: 0
+        rx: 
+          packets: "0"
+          bytes: "0"
+          compressed: 0
+          errors: "0"
+          overrun: 0
+          multicast: 0
+          frame: 0
+          drop: 0
+      lo0: 
+        tx: 
+          packets: "36242"
+          bytes: "52056550"
+          compressed: 0
+          collisions: "0"
+          carrier: 0
+          errors: "0"
+          overrun: 0
+          drop: 0
+        rx: 
+          packets: "36242"
+          bytes: "52056550"
+          compressed: 0
+          errors: "0"
+          overrun: 0
+          multicast: 0
+          frame: 0
+          drop: 0
+      gif0: 
+        tx: 
+          packets: "0"
+          bytes: "0"
+          compressed: 0
+          collisions: "0"
+          carrier: 0
+          errors: "0"
+          overrun: 0
+          drop: 0
+        rx: 
+          packets: "0"
+          bytes: "0"
+          compressed: 0
+          errors: "0"
+          overrun: 0
+          multicast: 0
+          frame: 0
+          drop: 0
+      en0: 
+        tx: 
+          packets: "0"
+          bytes: "342"
+          compressed: 0
+          collisions: "0"
+          carrier: 0
+          errors: "0"
+          overrun: 0
+          drop: 0
+        rx: 
+          packets: "0"
+          bytes: "0"
+          compressed: 0
+          errors: "0"
+          overrun: 0
+          multicast: 0
+          frame: 0
+          drop: 0
+      en1: 
+        tx: 
+          packets: "19663916"
+          bytes: "16966829191"
+          compressed: 0
+          collisions: "0"
+          carrier: 0
+          errors: "0"
+          overrun: 0
+          drop: 0
+        rx: 
+          packets: "19181009"
+          bytes: "12915788662"
+          compressed: 0
+          errors: "0"
+          overrun: 0
+          multicast: 0
+          frame: 0
+          drop: 0
+      en2: 
+        tx: 
+          packets: "2902"
+          bytes: "523259"
+          compressed: 0
+          collisions: "0"
+          carrier: 0
+          errors: "0"
+          overrun: 0
+          drop: 0
+        rx: 
+          packets: "2545"
+          bytes: "1520741"
+          compressed: 0
+          errors: "0"
+          overrun: 0
+          multicast: 0
+          frame: 0
+          drop: 0
+      fw0: 
+        tx: 
+          packets: "0"
+          bytes: "346"
+          compressed: 0
+          collisions: "0"
+          carrier: 0
+          errors: "0"
+          overrun: 0
+          drop: 0
+        rx: 
+          packets: "0"
+          bytes: "0"
+          compressed: 0
+          errors: "0"
+          overrun: 0
+          multicast: 0
+          frame: 0
+          drop: 0
+platform_build: 10J3250
+domain: 
+os: darwin
+network: 
+  default_interface: en1
+  interfaces: 
+    stf0: 
+      number: "0"
+      flags: []
+
+      addresses: {}
+
+      mtu: "1280"
+      type: stf
+      encapsulation: 6to4
+    vboxnet0: 
+      number: "0"
+      flags: 
+      - BROADCAST
+      - RUNNING
+      - SIMPLEX
+      - MULTICAST
+      addresses: 
+        0a:00:27:00:00:00: 
+          family: lladdr
+      mtu: "1500"
+      type: vboxnet
+      encapsulation: Ethernet
+    lo0: 
+      number: "0"
+      flags: 
+      - UP
+      - LOOPBACK
+      - RUNNING
+      - MULTICAST
+      addresses: 
+        "::1": 
+          scope: Node
+          prefixlen: "128"
+          family: inet6
+        fe80::1: 
+          scope: Link
+          prefixlen: "64"
+          family: inet6
+        127.0.0.1: 
+          netmask: 255.0.0.0
+          family: inet
+      mtu: "16384"
+      type: lo
+      encapsulation: Loopback
+    gif0: 
+      number: "0"
+      flags: 
+      - POINTOPOINT
+      - MULTICAST
+      addresses: {}
+
+      mtu: "1280"
+      type: gif
+      encapsulation: IPIP
+    en0: 
+      number: "0"
+      flags: 
+      - UP
+      - BROADCAST
+      - SMART
+      - RUNNING
+      - SIMPLEX
+      - MULTICAST
+      addresses: 
+        c8:2a:14:06:47:42: 
+          family: lladdr
+      mtu: "1500"
+      type: en
+      encapsulation: Ethernet
+    en1: 
+      number: "1"
+      flags: 
+      - UP
+      - BROADCAST
+      - SMART
+      - RUNNING
+      - SIMPLEX
+      - MULTICAST
+      addresses: 
+        fe80::e2f8:47ff:fe40:15fc: 
+          scope: Link
+          prefixlen: "64"
+          family: inet6
+        10.0.1.140: 
+          netmask: 255.255.255.0
+          broadcast: 10.0.1.255
+          family: inet
+        e0:f8:47:40:15:fc: 
+          family: lladdr
+      mtu: "1500"
+      type: en
+      encapsulation: Ethernet
+    en2: 
+      number: "2"
+      flags: 
+      - UP
+      - BROADCAST
+      - SMART
+      - RUNNING
+      - SIMPLEX
+      - MULTICAST
+      addresses: 
+        e0:f8:47:40:15:fd: 
+          family: lladdr
+      mtu: "1500"
+      type: en
+      encapsulation: Ethernet
+    fw0: 
+      number: "0"
+      flags: 
+      - UP
+      - BROADCAST
+      - SMART
+      - RUNNING
+      - SIMPLEX
+      - MULTICAST
+      addresses: 
+        70:cd:60:ff:fe:ee:ee:72: 
+          family: lladdr
+      mtu: "4078"
+      type: fw
+      encapsulation: "1394"
+  settings: 
+    net.inet6.ip6.forwarding: "0"
+    net.key.spi_maxval: "268435455"
+    net.key.int_random: "60"
+    net.key.debug: "0"
+    net.inet6.ipsec6.esp_trans_deflev: "1"
+    net.inet.ip.dummynet.curr_time: "0"
+    net.inet.tcp.minmssoverload: "0"
+    net.inet.tcp.tcbhashsize: "4096"
+    net.inet.ipsec.esp_port: "0"
+    net.inet6.ip6.hlim: "64"
+    net.inet.ip.fw.one_pass: "0"
+    net.inet.ip.fw.dyn_fin_lifetime: "1"
+    net.inet.ip.maxfragpackets: "1536"
+    net.inet.icmp.bmcastecho: "1"
+    net.inet.udp.maxdgram: "9216"
+    net.inet6.icmp6.nd6_useloopback: "1"
+    net.inet.ip.fw.debug: "0"
+    net.link.ether.inet.send_conflicting_probes: "1"
+    net.inet.tcp.keepinit: "75000"
+    net.inet.ipsec.esp_net_deflev: "1"
+    net.inet6.ipsec6.debug: "0"
+    net.inet.tcp.pmtud_blackhole_mss: "1200"
+    net.inet.ip.fw.curr_dyn_buckets: "256"
+    net.alf.mqcount: "0"
+    net.inet.ip.portrange.first: "49152"
+    net.inet.tcp.background_io_trigger: "5"
+    net.inet.tcp.msl: "15000"
+    net.inet.ip.forwarding: "0"
+    net.inet.ip.linklocal.in.allowbadttl: "1"
+    net.inet6.ipsec6.def_policy: "1"
+    net.inet.ipsec.ah_trans_deflev: "1"
+    net.inet.ip.fw.dyn_ack_lifetime: "300"
+    net.inet6.ip6.v6only: "0"
+    net.inet6.ip6.fw.verbose: "0"
+    net.inet.tcp.rtt_min: "1"
+    net.inet.tcp.sack: "1"
+    net.inet6.ip6.keepfaith: "0"
+    net.inet.udp.recvspace: "42080"
+    net.inet.tcp.isn_reseed_interval: "0"
+    net.link.ether.inet.useloopback: "1"
+    net.inet6.ip6.maxifprefixes: "16"
+    net.inet.tcp.ecn_initiate_out: "0"
+    net.inet.ip.fw.dyn_rst_lifetime: "1"
+    net.local.stream.recvspace: "8192"
+    net.local.stream.sendspace: "8192"
+    net.inet.ip.ttl: "64"
+    net.inet.ip.fw.verbose_limit: "0"
+    net.inet.ipsec.esp_trans_deflev: "1"
+    net.local.dgram.recvspace: "4096"
+    net.inet.ipsec.debug: "0"
+    net.link.ether.inet.log_arp_warnings: "0"
+    net.inet6.icmp6.rediraccept: "1"
+    net.inet6.ip6.fw.debug: "0"
+    net.inet.tcp.ecn_negotiate_in: "0"
+    net.inet.tcp.icmp_may_rst: "1"
+    net.inet.tcp.always_keepalive: "0"
+    net.inet.icmp.log_redirect: "0"
+    net.inet.tcp.delayed_ack: "3"
+    net.inet.tcp.slowlink_wsize: "8192"
+    net.inet.icmp.drop_redirect: "0"
+    net.inet.ip.portrange.hilast: "65535"
+    net.inet6.ipsec6.ah_trans_deflev: "1"
+    net.inet.icmp.maskrepl: "0"
+    net.inet.ip.select_srcif_debug: "0"
+    net.alf.defaultaction: "1"
+    net.inet.ip.redirect: "1"
+    net.inet.ip.rtexpire: "93"
+    net.inet.udp.blackhole: "1"
+    net.inet.ip.fw.dyn_syn_lifetime: "20"
+    net.inet.tcp.keepidle: "7200000"
+    net.inet.tcp.recvspace: "65536"
+    net.inet.tcp.keepintvl: "75000"
+    net.inet.ip.maxchainsent: "0"
+    net.inet.tcp.reass.maxsegments: "3072"
+    net.inet6.ip6.dad_count: "1"
+    net.inet.ip.dummynet.max_chain_len: "16"
+    net.inet6.ip6.auto_flowlabel: "1"
+    net.inet.tcp.slowstart_flightsize: "1"
+    net.inet6.ip6.auto_linklocal: "1"
+    net.inet.tcp.randomize_ports: "0"
+    net.inet.icmp.icmplim: "250"
+    net.inet.tcp.v6mssdflt: "1024"
+    net.inet.ip.scopedroute: "1"
+    net.key.larval_lifetime: "30"
+    net.inet.tcp.rfc1323: "1"
+    net.inet6.ip6.fw.verbose_limit: "0"
+    net.inet.ip.dummynet.red_lookup_depth: "256"
+    net.inet.ip.fastforwarding: "0"
+    net.inet.ip.dummynet.search_steps: "0"
+    net.inet6.ip6.redirect: "1"
+    net.inet6.ip6.rtexpire: "3600"
+    net.inet.tcp.pcbcount: "54"
+    net.link.ether.inet.proxyall: "0"
+    net.inet.ipsec.ah_cleartos: "1"
+    net.inet.tcp.rfc3465_lim2: "1"
+    net.key.spi_trycnt: "1000"
+    net.link.ether.inet.prune_intvl: "300"
+    net.inet.ipsec.bypass: "1"
+    net.inet.ip.fw.static_count: "2"
+    net.inet.udp.pcbcount: "72"
+    net.inet.tcp.rfc3465: "1"
+    net.inet.ip.fw.verbose: "2"
+    net.inet.udp.randomize_ports: "1"
+    net.inet.ipsec.ah_offsetmask: "0"
+    net.key.blockacq_count: "10"
+    net.inet.ip.fw.dyn_max: "4096"
+    net.inet6.ip6.neighborgcthresh: "1024"
+    net.inet6.ip6.fw.enable: "1"
+    net.inet6.icmp6.nd6_mmaxtries: "3"
+    net.link.ether.inet.apple_hwcksum_rx: "1"
+    net.inet.tcp.drop_synfin: "1"
+    net.inet.ip.rtminexpire: "10"
+    net.inet.ip.fw.dyn_buckets: "256"
+    net.inet6.ip6.accept_rtadv: "0"
+    net.inet.ipsec.ecn: "0"
+    net.inet.ip.dummynet.extract_heap: "0"
+    net.inet.ip.fw.dyn_keepalive: "1"
+    net.key.ah_keymin: "128"
+    net.inet6.ip6.maxdynroutes: "1024"
+    net.inet.tcp.sack_globalmaxholes: "65536"
+    net.inet.ip.accept_sourceroute: "0"
+    net.inet.ip.intr_queue_maxlen: "50"
+    net.inet.ip.keepfaith: "0"
+    net.inet.ip.dummynet.expire: "1"
+    net.inet.tcp.broken_peer_syn_rxmit_thres: "7"
+    net.inet.ip.gifttl: "30"
+    net.inet.ip.portrange.last: "65535"
+    net.inet.ipsec.ah_net_deflev: "1"
+    net.link.generic.system.ifcount: "8"
+    net.inet6.ip6.hdrnestlimit: "50"
+    net.inet.tcp.tcp_lq_overflow: "1"
+    net.inet.tcp.newreno: "0"
+    net.inet.tcp.background_io_enabled: "1"
+    net.inet6.ip6.tempvltime: "604800"
+    net.inet6.ip6.temppltime: "86400"
+    net.inet.tcp.strict_rfc1948: "0"
+    net.key.natt_keepalive_interval: "20"
+    net.link.generic.system.dlil_verbose: "0"
+    net.inet.ip.dummynet.red_max_pkt_size: "1500"
+    net.inet.tcp.log_in_vain: "3"
+    net.key.spi_minval: "256"
+    net.inet6.ip6.defmcasthlim: "1"
+    net.inet.ip.portrange.lowfirst: "1023"
+    net.inet.ip.portrange.lowlast: "600"
+    net.key.blockacq_lifetime: "20"
+    net.inet.tcp.sack_maxholes: "128"
+    net.inet.ip.maxfragsperpacket: "128"
+    net.link.generic.system.multi_threaded_input: "1"
+    net.inet.tcp.tso: "1"
+    net.inet.tcp.sack_globalholes: "0"
+    net.inet.tcp.sockthreshold: "64"
+    net.inet6.icmp6.nd6_umaxtries: "3"
+    net.inet6.icmp6.nd6_debug: "0"
+    net.inet.ip.sourceroute: "0"
+    net.inet.ip.fw.dyn_short_lifetime: "5"
+    net.local.inflight: "0"
+    net.inet.ip.use_route_genid: "1"
+    net.inet.ip.rtmaxcache: "128"
+    net.inet.ip.dummynet.red_avg_pkt_size: "512"
+    net.alf.perm: "1"
+    net.inet6.icmp6.nd6_maxnudhint: "0"
+    net.inet6.icmp6.errppslimit: "500"
+    net.inet.ipsec.dfbit: "0"
+    net.inet.udp.checksum: "1"
+    net.link.ether.inet.keep_announcements: "1"
+    net.inet.ipsec.esp_randpad: "-1"
+    net.inet6.ip6.kame_version: 20010528/apple-darwin
+    net.inet6.ipsec6.esp_net_deflev: "1"
+    net.inet.tcp.blackhole: "2"
+    net.inet6.ipsec6.esp_randpad: "-1"
+    net.inet.udp.log_in_vain: "3"
+    net.inet.ip.random_id: "1"
+    net.inet.ip.dummynet.debug: "0"
+    net.link.ether.inet.maxtries: "5"
+    net.inet.tcp.do_tcpdrain: "0"
+    net.key.esp_auth: "0"
+    net.inet6.ipsec6.ah_net_deflev: "1"
+    net.inet6.ip6.rr_prune: "5"
+    net.inet.tcp.path_mtu_discovery: "1"
+    net.inet.ipsec.def_policy: "1"
+    net.inet.ip.fw.autoinc_step: "100"
+    net.inet.raw.maxdgram: "8192"
+    net.inet.ip.fw.dyn_udp_lifetime: "10"
+    net.inet.tcp.packetchain: "50"
+    net.inet6.icmp6.nd6_delay: "5"
+    net.inet.tcp.rfc1644: "0"
+    net.inet.ip.dummynet.ready_heap: "0"
+    net.inet6.ip6.rtmaxcache: "128"
+    net.inet.tcp.sendspace: "65536"
+    net.inet6.ipsec6.ecn: "0"
+    net.inet.tcp.win_scale_factor: "3"
+    net.link.ether.inet.host_down_time: "20"
+    net.inet.ip.portrange.hifirst: "49152"
+    net.inet.ip.maxfrags: "3072"
+    net.link.ether.inet.apple_hwcksum_tx: "1"
+    net.inet6.icmp6.redirtimeout: "600"
+    net.inet6.icmp6.nd6_prune: "1"
+    net.inet.ip.subnets_are_local: "0"
+    net.inet.tcp.maxseg_unacked: "8"
+    net.local.dgram.maxdgram: "2048"
+    net.inet.ip.fw.enable: "1"
+    net.inet6.ip6.maxfragpackets: "1536"
+    net.inet6.ip6.use_tempaddr: "0"
+    net.inet6.ip6.log_interval: "5"
+    net.link.ether.inet.max_age: "1200"
+    net.alf.loglevel: "55"
+    net.inet6.ip6.use_deprecated: "1"
+    net.link.generic.system.dlil_input_sanity_check: "0"
+    net.inet.tcp.local_slowstart_flightsize: "8"
+    net.inet.ip.dummynet.searches: "0"
+    net.inet.ip.intr_queue_drops: "0"
+    net.inet.raw.recvspace: "8192"
+    net.key.prefered_oldsa: "0"
+    net.inet.tcp.reass.cursegments: "0"
+    net.inet.tcp.socket_unlocked_on_output: "1"
+    net.inet6.icmp6.nodeinfo: "3"
+    net.inet.ip.dummynet.hash_size: "64"
+    net.link.ether.inet.sendllconflict: "0"
+    net.inet.tcp.minmss: "216"
+    net.inet6.ip6.gifhlim: "0"
+    net.inet.ip.check_route_selfref: "1"
+    net.inet.tcp.reass.overflows: "0"
+    net.inet.ip.fw.dyn_count: "0"
+    net.inet.tcp.mssdflt: "512"
+    net.inet.tcp.rexmt_thresh: "2"
+    net.inet6.ip6.maxfrags: "12288"
+    net.inet6.ip6.rtminexpire: "10"
+    net.key.esp_keymin: "256"
+    net.inet.tcp.pmtud_blackhole_detection: "1"
+    net.inet6.ip6.maxifdefrouters: "16"
+    net.inet.icmp.timestamp: "0"
+    net.inet.ip.check_interface: "0"
+load_average: 
+  five_minutes: "1.11"
+  one_minute: "1.10"
+  fifteen_minutes: "0.95"
+current_user: dan
+ohai_time: 1303051271.7659
+chef_packages: 
+  ohai: 
+    version: 0.5.8
+  chef: 
+    version: 0.9.14
+os_version: 10.7.3
+languages: 
+  php: 
+    version: 5.3.4
+    builddate: Jan 17 2011
+  c: 
+    gcc: 
+      version: 4.2.1
+      description: gcc version 4.2.1 (Apple Inc. build 5666) (dot 3)
+  java: 
+    runtime: 
+      name: Java(TM) SE Runtime Environment
+      build: 1.6.0_24-b07-334-10M3326
+    version: 1.6.0_24
+  python: 
+    version: 2.6.1
+    builddate: Aug 2 2010, 20:10:18
+  perl: 
+    version: 5.10.0
+    archname: darwin-thread-multi-2level
+  ruby: 
+    target_os: darwin10.7.3
+    bin_dir: /Users/dan/.rvm/rubies/ruby-1.9.2-p180/bin
+    host_vendor: apple
+    target_vendor: apple
+    ruby_bin: /Users/dan/.rvm/rubies/ruby-1.9.2-p180/bin/ruby
+    target_cpu: x86_64
+    version: 1.9.2
+    host_os: darwin10.7.3
+    host_cpu: i386
+    host: i386-apple-darwin10.7.3
+    target: x86_64-apple-darwin10.7.3
+    release_date: "2011-02-18"
+    gems_dir: /Users/dan/.rvm/gems/ruby-1.9.2-p180
+    platform: x86_64-darwin10.7.3
+  erlang: 
+    version: 5.8.3
+    emulator: BEAM
+    options: 
+    - SMP
+    - ASYNC_THREADS
+    - HIPE
+uptime: 1 day 10 hours 33 minutes 03 seconds
+hostname: ares
+redis: 
+  connected_clients: "1"
+  used_cpu_sys_childrens: "0.00"
+  bgsave_in_progress: "0"
+  blocked_clients: "0"
+  client_biggest_input_buf: "0"
+  lru_clock: "281703"
+  pubsub_patterns: "0"
+  evicted_keys: "0"
+  process_id: "50525"
+  expired_keys: "0"
+  role: master
+  keyspace_misses: "0"
+  aof_enabled: "0"
+  use_tcmalloc: "0"
+  used_memory_rss: "1142784"
+  used_cpu_user: "0.02"
+  uptime_in_days: "0"
+  pubsub_channels: "0"
+  hash_max_zipmap_value: "64"
+  bgrewriteaof_in_progress: "0"
+  used_memory: "930624"
+  hash_max_zipmap_entries: "512"
+  keyspace_hits: "0"
+  loading: "0"
+  arch_bits: "64"
+  version: 2.2.2
+  vm_enabled: "0"
+  connected_slaves: "0"
+  total_connections_received: "3"
+  last_save_time: "1303051148"
+  used_memory_human: 908.81K
+  client_longest_output_list: "0"
+  uptime_in_seconds: "124"
+  total_commands_processed: "2"
+  changes_since_last_save: "0"
+  mem_fragmentation_ratio: "1.23"
+  used_cpu_user_childrens: "0.00"
+  used_cpu_sys: "0.03"
+  multiplexing_api: kqueue
+etc: 
+  group: 
+    netusers: 
+      gid: 52
+      members: []
+
+    kmem: 
+      gid: 2
+      members: 
+      - root
+    _update_sharing: 
+      gid: 95
+      members: []
+
+    _postdrop: 
+      gid: 28
+      members: []
+
+    _odchpass: 
+      gid: 209
+      members: 
+      - _teamsserver
+    _ard: 
+      gid: 67
+      members: []
+
+    _dpaudio: 
+      gid: 215
+      members: []
+
+    _installer: 
+      gid: 96
+      members: []
+
+    _sshd: 
+      gid: 75
+      members: []
+
+    _mysql: 
+      gid: 74
+      members: []
+
+    accessibility: 
+      gid: 90
+      members: []
+
+    network: 
+      gid: 69
+      members: []
+
+    _svn: 
+      gid: 73
+      members: []
+
+    _xgridagent: 
+      gid: 86
+      members: []
+
+    _locationd: 
+      gid: 205
+      members: []
+
+    _trustevaluationagent: 
+      gid: 208
+      members: []
+
+    _unknown: 
+      gid: 99
+      members: []
+
+    nobody: 
+      gid: 4294967294
+      members: []
+
+    netaccounts: 
+      gid: 62
+      members: []
+
+    _appowner: 
+      gid: 87
+      members: []
+
+    _cvms: 
+      gid: 212
+      members: []
+
+    _spotlight: 
+      gid: 89
+      members: []
+
+    _keytabusers: 
+      gid: 30
+      members: 
+      - _calendar
+      - _jabber
+      - _postfix
+    _teamsserver: 
+      gid: 94
+      members: []
+
+    _lp: 
+      gid: 26
+      members: []
+
+    _appserveradm: 
+      gid: 81
+      members: []
+
+    _securityagent: 
+      gid: 92
+      members: []
+
+    _screensaver: 
+      gid: 203
+      members: []
+
+    _www: 
+      gid: 70
+      members: []
+
+    interactusers: 
+      gid: 51
+      members: []
+
+    _devdocs: 
+      gid: 59
+      members: []
+
+    _mcxalr: 
+      gid: 54
+      members: []
+
+    procview: 
+      gid: 8
+      members: 
+      - root
+    _sandbox: 
+      gid: 60
+      members: []
+
+    _jabber: 
+      gid: 84
+      members: []
+
+    staff: 
+      gid: 20
+      members: 
+      - root
+    _lpadmin: 
+      gid: 98
+      members: []
+
+    _tokend: 
+      gid: 91
+      members: []
+
+    owner: 
+      gid: 10
+      members: []
+
+    operator: 
+      gid: 5
+      members: 
+      - root
+    _guest: 
+      gid: 201
+      members: []
+
+    _detachedsig: 
+      gid: 207
+      members: 
+      - _locationd
+    group: 
+      gid: 16
+      members: []
+
+    _windowserver: 
+      gid: 88
+      members: []
+
+    daemon: 
+      gid: 1
+      members: 
+      - root
+    _lpoperator: 
+      gid: 100
+      members: []
+
+    com.apple.access_screensharing: 
+      gid: 401
+      members: []
+
+    everyone: 
+      gid: 12
+      members: []
+
+    tty: 
+      gid: 4
+      members: 
+      - root
+    sys: 
+      gid: 3
+      members: 
+      - root
+    procmod: 
+      gid: 9
+      members: 
+      - root
+    _mailman: 
+      gid: 78
+      members: []
+
+    _carddav: 
+      gid: 206
+      members: []
+
+    wheel: 
+      gid: 0
+      members: 
+      - root
+    smmsp: 
+      gid: 25
+      members: []
+
+    _usbmuxd: 
+      gid: 213
+      members: []
+
+    _pcastagent: 
+      gid: 55
+      members: []
+
+    _coreaudiod: 
+      gid: 202
+      members: []
+
+    localaccounts: 
+      gid: 61
+      members: []
+
+    _appserverusr: 
+      gid: 79
+      members: []
+
+    _qtss: 
+      gid: 76
+      members: []
+
+    _postfix: 
+      gid: 27
+      members: []
+
+    _serialnumberd: 
+      gid: 58
+      members: []
+
+    _timezone: 
+      gid: 210
+      members: []
+
+    authedusers: 
+      gid: 50
+      members: []
+
+    nogroup: 
+      gid: 4294967295
+      members: []
+
+    _pcastserver: 
+      gid: 56
+      members: []
+
+    consoleusers: 
+      gid: 53
+      members: []
+
+    _xgridcontroller: 
+      gid: 85
+      members: []
+
+    bin: 
+      gid: 7
+      members: []
+
+    _atsserver: 
+      gid: 97
+      members: []
+
+    certusers: 
+      gid: 29
+      members: 
+      - root
+      - _jabber
+      - _postfix
+      - _cyrus
+      - _calendar
+      - _dovecot
+    admin: 
+      gid: 80
+      members: 
+      - root
+      - dan
+    _cvs: 
+      gid: 72
+      members: []
+
+    _uucp: 
+      gid: 66
+      members: []
+
+    _lda: 
+      gid: 211
+      members: []
+
+    utmp: 
+      gid: 45
+      members: []
+
+    _amavisd: 
+      gid: 83
+      members: []
+
+    _clamav: 
+      gid: 82
+      members: []
+
+    _developer: 
+      gid: 204
+      members: []
+
+    mail: 
+      gid: 6
+      members: 
+      - _teamsserver
+    _mdnsresponder: 
+      gid: 65
+      members: []
+
+    dialer: 
+      gid: 68
+      members: []
+
+    _softwareupdate: 
+      gid: 200
+      members: 
+      - _softwareupdate
+    _calendar: 
+      gid: 93
+      members: 
+      - _teamsserver
+  passwd: 
+    _www: 
+      gecos: World Wide Web Server
+      gid: 70
+      dir: /Library/WebServer
+      uid: 70
+      shell: /usr/bin/false
+    _installer: 
+      gecos: Installer
+      gid: 4294967294
+      dir: /var/empty
+      uid: 96
+      shell: /usr/bin/false
+    _eppc: 
+      gecos: Apple Events User
+      gid: 71
+      dir: /var/empty
+      uid: 71
+      shell: /usr/bin/false
+    _dpaudio: 
+      gecos: DP Audio
+      gid: 215
+      dir: /var/empty
+      uid: 215
+      shell: /usr/bin/false
+    _clamav: 
+      gecos: ClamAV Daemon
+      gid: 82
+      dir: /var/virusmails
+      uid: 82
+      shell: /usr/bin/false
+    _calendar: 
+      gecos: Calendar
+      gid: 93
+      dir: /var/empty
+      uid: 93
+      shell: /usr/bin/false
+    _ard: 
+      gecos: Apple Remote Desktop
+      gid: 67
+      dir: /var/empty
+      uid: 67
+      shell: /usr/bin/false
+    _tokend: 
+      gecos: Token Daemon
+      gid: 91
+      dir: /var/empty
+      uid: 91
+      shell: /usr/bin/false
+    _serialnumberd: 
+      gecos: Serial Number Daemon
+      gid: 58
+      dir: /var/empty
+      uid: 58
+      shell: /usr/bin/false
+    _screensaver: 
+      gecos: Screensaver
+      gid: 203
+      dir: /var/empty
+      uid: 203
+      shell: /usr/bin/false
+    _lda: 
+      gecos: Local Delivery Agent
+      gid: 211
+      dir: /var/empty
+      uid: 211
+      shell: /usr/bin/false
+    _coreaudiod: 
+      gecos: Core Audio Daemon
+      gid: 202
+      dir: /var/empty
+      uid: 202
+      shell: /usr/bin/false
+    _carddav: 
+      gecos: CardDAV Service
+      gid: 206
+      dir: /var/empty
+      uid: 206
+      shell: /usr/bin/false
+    _unknown: 
+      gecos: Unknown User
+      gid: 99
+      dir: /var/empty
+      uid: 99
+      shell: /usr/bin/false
+    _postfix: 
+      gecos: Postfix Mail Server
+      gid: 27
+      dir: /var/spool/postfix
+      uid: 27
+      shell: /usr/bin/false
+    _amavisd: 
+      gecos: AMaViS Daemon
+      gid: 83
+      dir: /var/virusmails
+      uid: 83
+      shell: /usr/bin/false
+    nobody: 
+      gecos: Unprivileged User
+      gid: 4294967294
+      dir: /var/empty
+      uid: 4294967294
+      shell: /usr/bin/false
+    _uucp: 
+      gecos: Unix to Unix Copy Protocol
+      gid: 4
+      dir: /var/spool/uucp
+      uid: 4
+      shell: /usr/sbin/uucico
+    _spotlight: 
+      gecos: Spotlight
+      gid: 89
+      dir: /var/empty
+      uid: 89
+      shell: /usr/bin/false
+    _pcastagent: 
+      gecos: Podcast Producer Agent
+      gid: 55
+      dir: /var/pcast/agent
+      uid: 55
+      shell: /usr/bin/false
+    _lp: 
+      gecos: Printing Services
+      gid: 26
+      dir: /var/spool/cups
+      uid: 26
+      shell: /usr/bin/false
+    _cvs: 
+      gecos: CVS Server
+      gid: 72
+      dir: /var/empty
+      uid: 72
+      shell: /usr/bin/false
+    _timezone: 
+      gecos: AutoTimeZoneDaemon
+      gid: 210
+      dir: /var/empty
+      uid: 210
+      shell: /usr/bin/false
+    _mcxalr: 
+      gecos: MCX AppLaunch
+      gid: 54
+      dir: /var/empty
+      uid: 54
+      shell: /usr/bin/false
+    _cvmsroot: 
+      gecos: CVMS Root
+      gid: 212
+      dir: /var/empty
+      uid: 212
+      shell: /usr/bin/false
+    _usbmuxd: 
+      gecos: iPhone OS Device Helper
+      gid: 213
+      dir: /var/db/lockdown
+      uid: 213
+      shell: /usr/bin/false
+    _mysql: 
+      gecos: MySQL Server
+      gid: 74
+      dir: /var/empty
+      uid: 74
+      shell: /usr/bin/false
+    _jabber: 
+      gecos: Jabber XMPP Server
+      gid: 84
+      dir: /var/empty
+      uid: 84
+      shell: /usr/bin/false
+    root: 
+      gecos: System Administrator
+      gid: 0
+      dir: /var/root
+      uid: 0
+      shell: /bin/sh
+    dan: 
+      gecos: Dan Ryan
+      gid: 20
+      dir: /Users/dan
+      uid: 501
+      shell: /bin/bash
+    _teamsserver: 
+      gecos: TeamsServer
+      gid: 94
+      dir: /var/teamsserver
+      uid: 94
+      shell: /usr/bin/false
+    _softwareupdate: 
+      gecos: Software Update Service
+      gid: 200
+      dir: /var/empty
+      uid: 200
+      shell: /usr/bin/false
+    _qtss: 
+      gecos: QuickTime Streaming Server
+      gid: 76
+      dir: /var/empty
+      uid: 76
+      shell: /usr/bin/false
+    _dovecot: 
+      gecos: Dovecot Administrator
+      gid: 6
+      dir: /var/empty
+      uid: 214
+      shell: /usr/bin/false
+    _atsserver: 
+      gecos: ATS Server
+      gid: 97
+      dir: /var/empty
+      uid: 97
+      shell: /usr/bin/false
+    _xgridcontroller: 
+      gecos: Xgrid Controller
+      gid: 85
+      dir: /var/xgrid/controller
+      uid: 85
+      shell: /usr/bin/false
+    _trustevaluationagent: 
+      gecos: Trust Evaluation Agent
+      gid: 208
+      dir: /var/empty
+      uid: 208
+      shell: /usr/bin/false
+    _sshd: 
+      gecos: sshd Privilege separation
+      gid: 75
+      dir: /var/empty
+      uid: 75
+      shell: /usr/bin/false
+    _cyrus: 
+      gecos: Cyrus Administrator
+      gid: 6
+      dir: /var/imap
+      uid: 77
+      shell: /usr/bin/false
+    _appserver: 
+      gecos: Application Server
+      gid: 79
+      dir: /var/empty
+      uid: 79
+      shell: /usr/bin/false
+    daemon: 
+      gecos: System Services
+      gid: 1
+      dir: /var/root
+      uid: 1
+      shell: /usr/bin/false
+    _securityagent: 
+      gecos: SecurityAgent
+      gid: 92
+      dir: /var/empty
+      uid: 92
+      shell: /usr/bin/false
+    _mailman: 
+      gecos: Mailman List Server
+      gid: 78
+      dir: /var/empty
+      uid: 78
+      shell: /usr/bin/false
+    _devdocs: 
+      gecos: Developer Documentation
+      gid: 59
+      dir: /var/empty
+      uid: 59
+      shell: /usr/bin/false
+    _windowserver: 
+      gecos: WindowServer
+      gid: 88
+      dir: /var/empty
+      uid: 88
+      shell: /usr/bin/false
+    _update_sharing: 
+      gecos: Update Sharing
+      gid: 4294967294
+      dir: /var/empty
+      uid: 95
+      shell: /usr/bin/false
+    _mdnsresponder: 
+      gecos: mDNSResponder
+      gid: 65
+      dir: /var/empty
+      uid: 65
+      shell: /usr/bin/false
+    _locationd: 
+      gecos: Location Daemon
+      gid: 205
+      dir: /var/empty
+      uid: 205
+      shell: /usr/bin/false
+    _xgridagent: 
+      gecos: Xgrid Agent
+      gid: 86
+      dir: /var/xgrid/agent
+      uid: 86
+      shell: /usr/bin/false
+    _svn: 
+      gecos: SVN Server
+      gid: 73
+      dir: /var/empty
+      uid: 73
+      shell: /usr/bin/false
+    _sandbox: 
+      gecos: Seatbelt
+      gid: 60
+      dir: /var/empty
+      uid: 60
+      shell: /usr/bin/false
+    _pcastserver: 
+      gecos: Podcast Producer Server
+      gid: 56
+      dir: /var/pcast/server
+      uid: 56
+      shell: /usr/bin/false
+    _appowner: 
+      gecos: Application Owner
+      gid: 87
+      dir: /var/empty
+      uid: 87
+      shell: /usr/bin/false
+macaddress: e0:f8:47:40:15:fc
+uptime_seconds: 124383
+platform: mac_os_x
