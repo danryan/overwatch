@@ -20,6 +20,7 @@ namespace :overwatch do
     nodes.each do |node|
       10.times do
         node.snapshots << Overwatch::Snapshot.create(:raw_data => DATA, :node => node)
+        sleep 1
       end
     end  
     check1 = Overwatch::Check.create

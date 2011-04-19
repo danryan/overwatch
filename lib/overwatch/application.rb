@@ -19,11 +19,11 @@ module Overwatch
       begin
         require 'sinatra/reloader'
         register Sinatra::Reloader
-        also_reload File.join(File.dirname(__FILE__), '../../models/node')
-        also_reload File.join(File.dirname(__FILE__), '../../models/snapshot')
-        also_reload File.join(File.dirname(__FILE__), '../../routes/node')
-        also_reload File.join(File.dirname(__FILE__), '../../snapshot')
-        also_reload File.join(File.dirname(__FILE__), '../helpers')
+        also_reload File.join(File.dirname(__FILE__), 'node')
+        also_reload File.join(File.dirname(__FILE__), 'snapshot')
+        also_reload File.join(File.dirname(__FILE__), 'routes/node')
+        also_reload File.join(File.dirname(__FILE__), 'snapshot')
+        also_reload File.join(File.dirname(__FILE__), 'helpers')
       rescue LoadError
         puts "sinatra-reloader gem missing. reloading disabled"
       end

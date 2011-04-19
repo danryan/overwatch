@@ -12,6 +12,10 @@ module Overwatch
     validates_presence_of :name
     validates_uniqueness_of :name
     
+    def snapshot_range(start_at=Time.now, end_at=Time.now)
+      snapshots.where(:created_at.gte => start_at, :created_at.lte => end_at)
+    end
+    
     def previous_update
       snapshots.order_by(:created_at)[-2]
     end

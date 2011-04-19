@@ -3,7 +3,13 @@ module Overwatch
 
     get '/nodes/:name/snapshots/?' do |name|
       node = Node.where(:name => name).first
-      snapshots = node.snapshots
+      dates = {}
+      dates[:start_at] = params[:start_at] || (DateTime.now - 1.hour)
+      dates[:end_at] = params[:end_at] || DateTime.now
+      snapshots = node.snapshots.where(
+        :created_at.gte => params['start_at'] || (DateTime.now - 1.hour),
+        :created_at.lte => params['end_at'] || DateTime.now)
+      
       snapshots.to_json(:only => [ :_id, :created_at ])
     end # GET index
 
