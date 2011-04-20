@@ -1,13 +1,30 @@
 module Overwatch
   class Application < Sinatra::Base
 
+    post '/snapshots/?' do
+      if !params['api_key']
+        halt 400
+      else
+        data = JSON.parse(request.body.read)
+        node = Node.where(:api_key => params['api_key']).first
+        snapshot = node.snapshots.new(:raw_data => data)
+        if snapshot.save
+          status 200
+          snapshot.to_json(:only => [ :_id, :created_at ])
+        else
+          status 422
+          snapshot.errors.to_json
+        end
+      end
+    end
+    
     get '/nodes/:name/snapshots/?' do |name|
       node = Node.where(:name => name).first
       dates = {}
       dates[:start_at] = params[:start_at] || (DateTime.now - 1.hour)
       dates[:end_at] = params[:end_at] || DateTime.now
       snapshots = node.snapshots.where(
-        :created_at.gte => params['start_at'] || (DateTime.now - 1.hour),
+        :created_at.gte => params['start_at'] || (DateTime.now - 1.month),
         :created_at.lte => params['end_at'] || DateTime.now)
       if params['attribute']
         attr = params['attribute']

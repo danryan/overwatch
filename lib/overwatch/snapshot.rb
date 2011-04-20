@@ -5,7 +5,7 @@ module Overwatch
     
     attr_accessor :raw_data
     # field :data, :type => Hash
-    referenced_in :node, :class_name => "Overwatch::Node"
+    embedded_in :node, :class_name => "Overwatch::Node"
     
     before_save :parse_data
     after_save :run_checks

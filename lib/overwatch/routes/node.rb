@@ -33,7 +33,7 @@ module Overwatch
     end # POST
 
     delete '/nodes/:name/?' do |name|
-      node = Overwatch::Node.find(:name => name).first
+      node = Overwatch::Node.where(:name => name).first
       if node
         if node.delete
           status 204
@@ -47,5 +47,20 @@ module Overwatch
       end
     end # DELETE
 
+    get '/nodes/:name/regenerate_api_key' do |name|
+      node = Overwatch::Node.where(:name => name).first
+      if node
+        if node.regenerate_api_key
+          status 200
+          body node.to_json
+        else
+          status 444
+          node.errors.to_json
+        end
+      else
+        halt 404
+      end
+    end # REGEN API KEY
+    
   end # Application
 end # Overwatch
