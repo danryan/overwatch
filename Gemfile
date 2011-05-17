@@ -12,3 +12,9 @@ gem "mail", "~> 2.2.16"
 gem 'resque'
 gem 'yajl-ruby', :require => 'yajl'
 gem 'haml'
+
+group :development, :test do
+  gem 'rspec'
+  gem 'spork'
+  gem 'watchr'
+end
