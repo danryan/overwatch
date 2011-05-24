@@ -1,6 +1,7 @@
 module Overwatch
   class Application < Sinatra::Base
 
+
    get '/nodes/?' do
       nodes = Overwatch::Node.all
       if nodes.size == 0
@@ -61,6 +62,20 @@ module Overwatch
         halt 404
       end
     end # REGEN API KEY
+    
+    
+    post '/nodes/:api_key/?' do
+      data = JSON.parse(request.body.read)
+      node = Node.where(:api_key => params['api_key']).first
+      snapshot = node.snapshots.new(:raw_data => data)
+      if snapshot.save
+        status 200
+        snapshot.to_json(:only => [ :_id, :created_at ])
+      else
+        status 422
+        snapshot.errors.to_json
+      end
+    end
     
   end # Application
 end # Overwatch

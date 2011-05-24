@@ -1,22 +1,5 @@
 module Overwatch
   class Application < Sinatra::Base
-
-    post '/snapshots/?' do
-      if !params['api_key']
-        halt 400
-      else
-        data = JSON.parse(request.body.read)
-        node = Node.where(:api_key => params['api_key']).first
-        snapshot = node.snapshots.new(:raw_data => data)
-        if snapshot.save
-          status 200
-          snapshot.to_json(:only => [ :_id, :created_at ])
-        else
-          status 422
-          snapshot.errors.to_json
-        end
-      end
-    end
     
     get '/nodes/:name/snapshots/?' do |name|
       node = Node.where(:name => name).first
@@ -76,6 +59,17 @@ module Overwatch
         halt 404
       end
     end # DELETE
+    
+    get '/nodes/:name/snapshots/:id/data/?' do |name, id|
+      node = Node.where(:name => name).first
+      snapshot = node.snapshots.find(id)
+      if snapshot
+        status 200
+        snapshot.data.to_json
+      else
+        halt 404
+      end
+    end
 
   end # Application
 end # Overwatch

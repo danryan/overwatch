@@ -8,7 +8,7 @@ module Overwatch
     
     index :name
     
-    embeds_many :snapshots, :class_name => "Overwatch::Snapshot", :validate => false
+    references_many :snapshots, :class_name => "Overwatch::Snapshot", :validate => false
     references_and_referenced_in_many :checks, :class_name => "Overwatch::Check"
     
     validates_presence_of :name, :api_key
