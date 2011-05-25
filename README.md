@@ -89,5 +89,14 @@ An event is the action that occurs if a check run fails. Events can send emails,
     cd overwatch
     rackup
     
-More to come!
+    
 
+## Roadmap
+
+Some things I need to implement before I consider Overwatch ready for primetime (in no particular order):
+
+* Graphs for single attributes, aggregate attributes and aggregate nodes
+* Finish the API for creating checks, rules and events
+* Add a frontend
+* Additional metrics processing (average/min/max over n minutes)
+* Replace MongoDB with Redis completely

@@ -21,11 +21,11 @@ module Overwatch
     end # GET index
 
     post '/nodes/:name/snapshots/?' do |name|
-      data = JSON.parse(request.body.read)
       node = Node.where(:name => name).first
-      snapshot = node.snapshots.new(:data => data)
+      snapshot = node.snapshots.new(:raw_data => request.body.read)
       
       if snapshot.save
+        # body resquest.body.read.to_json
         snapshot.to_json
       else
         status 422

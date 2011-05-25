@@ -4,36 +4,18 @@ module Overwatch
     include Mongoid::Timestamps::Created
     
     attr_accessor :raw_data
-    # field :data, :type => Hash
+    # field :raw_data, :type => String
     referenced_in :node, :class_name => "Overwatch::Node"
     
     before_save :parse_data
     after_save :run_checks
 
     def parse_data
-      data = to_dotted_hash(self.raw_data)
-      Overwatch.redis.mapped_hmset "snapshots:#{self._id}:data", data
+      Overwatch.redis.set "snapshots:#{self._id}:data", Yajl.dump(self.raw_data)
     end
-      
-    def to_dotted_hash(source, target = {}, namespace = nil)
-      prefix = "#{namespace}." if namespace
-      case source
-      when Hash
-        source.each do |key, value|
-          to_dotted_hash(value, target, "#{prefix}#{key}")
-        end
-      when Array
-        source.each_with_index do |value, index|
-          to_dotted_hash(value, target, "#{prefix}#{index}")
-        end
-      else
-        target[namespace] = source
-      end
-      target
-    end # to_dotted_hash
     
     def data
-      Overwatch.redis.hgetall "snapshots:#{self._id}:data"
+      Hashie::Mash.new(Yajl.load(Overwatch.redis.get "snapshots:#{self._id}:data"))
     end
     
     def run_checks

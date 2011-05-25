@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'mongoid'
 require 'bson'
 require 'mail'
+require 'hashie'
 
 # require 'overwatch/core_ext/object'
 
