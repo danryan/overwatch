@@ -10,6 +10,29 @@ Overwatch is a monitoring application designed for flexibility in all aspects, f
 
 Honestly, I'm not happy with any other monitoring application out there. They're either  a royal pain to configure, setup and maintain, or sorely lack features that should exist in today's server landscape. Overwatch is the scratch to an itch I've had for a while.
 
+## The Ideal Monitoring Service
+
+### It must be easy.
+
+One of the bigger pain points of monitoring applications is configuration and deployment. Management systems like Puppet or Chef have made this easier, but it’s still far from a perfect solution.
+
+Deployment should be a drop-in process. Plugins should be simple to write. The API should adhere to current best practices. The system itself should not use proprietary or esoteric pieces.
+
+### It must be extensible.
+
+No two infrastructures are alike, and so the service that monitors yours should provide the freedom and the flexibility to instrument it as you see fit. The resources we want to instrument are different. Sometimes it’s a server; other times it’s an application. The system should make no assumptions.
+
+### It must be performant.
+
+Monitoring is an incredibly critical component of a well-designed infrastructure. If a monitoring service cannot identify and alert us to problems rapidly, then it is of little use. The system must be able to keep up with any and all demand and be impeccably stable.
+
+
+### It must be useful.
+
+The system should provide three distinct capabilities: the ability to observe, the ability to trend, and the ability to report. Metrics are a crucial part of being able to intelligently respond to an event. Trends help us discover weak spots that need fixing, or help us better plan capacity.
+
+Reports are the most critical part, as well as the part most in need of an overhaul. What happens when a service fails? Who or what gets notified? How do our other systems react? The system should not only provide the typical meatcloud notifications, but also provide ways to interact with other systems.
+
 ## Terminology
 
 This is but a brief overview. For more details, consult the wiki.
