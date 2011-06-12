@@ -1,6 +1,7 @@
 require 'overwatch/helpers'
-require 'overwatch/routes/node'
+require 'overwatch/routes/resource'
 require 'overwatch/routes/snapshot'
+require 'overwatch/routes/check'
 
 module Overwatch
   class Application < Sinatra::Base
@@ -19,9 +20,9 @@ module Overwatch
       begin
         require 'sinatra/reloader'
         register Sinatra::Reloader
-        also_reload File.join(File.dirname(__FILE__), 'node')
+        also_reload File.join(File.dirname(__FILE__), 'resource')
         also_reload File.join(File.dirname(__FILE__), 'snapshot')
-        also_reload File.join(File.dirname(__FILE__), 'routes/node')
+        also_reload File.join(File.dirname(__FILE__), 'routes/resource')
         also_reload File.join(File.dirname(__FILE__), 'snapshot')
         also_reload File.join(File.dirname(__FILE__), 'helpers')
       rescue LoadError

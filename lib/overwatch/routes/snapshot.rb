@@ -1,12 +1,12 @@
 module Overwatch
   class Application < Sinatra::Base
     
-    get '/nodes/:name/snapshots/?' do |name|
-      node = Node.where(:name => name).first
+    get '/resources/:name/snapshots/?' do |name|
+      resource = Resource.where(:name => name).first
       dates = {}
       dates[:start_at] = params[:start_at] || (DateTime.now - 1.hour)
       dates[:end_at] = params[:end_at] || DateTime.now
-      snapshots = node.snapshots.where(
+      snapshots = resource.snapshots.where(
         :created_at.gte => params['start_at'] || (DateTime.now - 1.month),
         :created_at.lte => params['end_at'] || DateTime.now)
       if params['attribute']
@@ -20,9 +20,9 @@ module Overwatch
       end
     end # GET index
 
-    post '/nodes/:name/snapshots/?' do |name|
-      node = Node.where(:name => name).first
-      snapshot = node.snapshots.new(:raw_data => request.body.read)
+    post '/resources/:name/snapshots/?' do |name|
+      resource = Resource.where(:name => name).first
+      snapshot = resource.snapshots.new(:raw_data => request.body.read)
       
       if snapshot.save
         # body resquest.body.read.to_json
@@ -33,9 +33,9 @@ module Overwatch
       end
     end # POST
     
-    get '/nodes/:name/snapshots/:id/?' do |name, id|
-      node = Overwatch::Node.where(:name => name).first
-      snapshot = node.snapshots.find(id)
+    get '/resources/:name/snapshots/:id/?' do |name, id|
+      resource = Overwatch::Resource.where(:name => name).first
+      snapshot = resource.snapshots.find(id)
       if snapshot
         status 200
         snapshot.to_json
@@ -44,9 +44,9 @@ module Overwatch
       end
     end # GET show
 
-    delete '/nodes/:name/snapshots/:id/?' do |name, id|
-      node = Overwatch::Node.where(:name => name).first
-      snapshot = node.snapshots.find(id)
+    delete '/resources/:name/snapshots/:id/?' do |name, id|
+      resource = Overwatch::Resource.where(:name => name).first
+      snapshot = resource.snapshots.find(id)
       if snapshot
         if snapshot.delete
           status 204
@@ -60,9 +60,9 @@ module Overwatch
       end
     end # DELETE
     
-    get '/nodes/:name/snapshots/:id/data/?' do |name, id|
-      node = Node.where(:name => name).first
-      snapshot = node.snapshots.find(id)
+    get '/resources/:name/snapshots/:id/data/?' do |name, id|
+      resource = Resource.where(:name => name).first
+      snapshot = resource.snapshots.find(id)
       if snapshot
         status 200
         snapshot.data.to_json

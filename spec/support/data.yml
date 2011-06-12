@@ -734,7 +734,7 @@ network:
       - MULTICAST
       addresses: 
         "::1": 
-          scope: Node
+          scope: Resource
           prefixlen: "128"
           family: inet6
         fe80::1: 
@@ -1041,7 +1041,7 @@ network:
     net.key.prefered_oldsa: "0"
     net.inet.tcp.reass.cursegments: "0"
     net.inet.tcp.socket_unlocked_on_output: "1"
-    net.inet6.icmp6.nodeinfo: "3"
+    net.inet6.icmp6.resourceinfo: "3"
     net.inet.ip.dummynet.hash_size: "64"
     net.link.ether.inet.sendllconflict: "0"
     net.inet.tcp.minmss: "216"

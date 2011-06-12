@@ -9,7 +9,7 @@ module Overwatch
       mail = Mail.new
       mail.from "dan@appliedawesome.com"
       mail.to self.recipients
-      mail.subject "[Overwatch] #{rule.to_s} failed on #{snapshot.node.name}!"
+      mail.subject "[Overwatch] #{rule.to_s} failed on #{snapshot.resource.name}!"
       mail.body "What we checked: #{rule.to_s}\nWhat we saw: #{snapshot.data[rule.attr]}"
       mail.deliver!
       # super

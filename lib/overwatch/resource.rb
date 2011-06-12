@@ -1,5 +1,5 @@
 module Overwatch
-  class Node
+  class Resource
     include Mongoid::Document
     include Mongoid::Timestamps
     
@@ -46,5 +46,5 @@ module Overwatch
     
 
      
-  end # class Node
+  end # class Resource
 end # module Overwatch

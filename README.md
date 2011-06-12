@@ -37,21 +37,21 @@ Reports are the most critical part, as well as the part most in need of an overh
 
 This is but a brief overview. For more details, consult the wiki.
 
-### Node
+### Resource
 
-A node is a server upon which the client runs. Overwatch monitors a node by parsing its snapshots
+A resource is a server upon which the client runs. Overwatch monitors a resource by parsing its snapshots
 
 ### Snapshot
 
-A snapshot is a hash, a point in time of the node's history, sent to Overwatch by the client. Overwatch runs a snapshot through all of a node's checks.
+A snapshot is a hash, a point in time of the resource's history, sent to Overwatch by the client. Overwatch runs a snapshot through all of a resource's checks.
 
 ### Check
 
-A check is collection of rules. Checks can be associated with one or more nodes.
+A check is collection of rules. Checks can be associated with one or more resources.
 
 ### Rule
 
-A rule is three parts: an attribute of the node, a condition, and an expectation. Every snapshot is checked against the rules of a check. If a rule returns false, the check fails and an event is fired.
+A rule is three parts: an attribute of the resource, a condition, and an expectation. Every snapshot is checked against the rules of a check. If a rule returns false, the check fails and an event is fired.
 
 ### Event
 
@@ -73,15 +73,15 @@ An event is the action that occurs if a check run fails. Events can send emails,
       }
     }
 
-    # Add a new node, host.example.com
-    node = Overwatch::Node.create(:name => "host.example.com")
+    # Add a new resource, host.example.com
+    resource = Overwatch::Resource.create(:name => "host.example.com")
     
-    # Send the node a snapshot
-    node.snapshots << Overwatch::Snapshot.create(:raw_data => data, :node => node)
+    # Send the resource a snapshot
+    resource.snapshots << Overwatch::Snapshot.create(:raw_data => data, :resource => resource)
 
-    # Add a new check to the node
-    node.checks << Overwatch::Check.create
-    check = node.checks.first
+    # Add a new check to the resource
+    resource.checks << Overwatch::Check.create
+    check = resource.checks.first
     
     # Set some rules on this check
     check.rules << Overwatch::Rule.create(:attr => "load_average.one_min").less_than(4)
@@ -91,10 +91,10 @@ An event is the action that occurs if a check run fails. Events can send emails,
     check.events << Overwatch::Event::STDOUT.create
     
     # Let's run the checks!
-    node.run_checks
+    resource.run_checks
     
-    # Call the check run directly (node.last_update is the last snapshot to be added)
-    check.run(node.last_update)
+    # Call the check run directly (resource.last_update is the last snapshot to be added)
+    check.run(resource.last_update)
     
     # This should return true. Now let's introduce some failure
     
@@ -118,7 +118,7 @@ An event is the action that occurs if a check run fails. Events can send emails,
 
 Some things I need to implement before I consider Overwatch ready for primetime (in no particular order):
 
-* Graphs for single attributes, aggregate attributes and aggregate nodes
+* Graphs for single attributes, aggregate attributes and aggregate resources
 * Finish the API for creating checks, rules and events
 * Add a frontend
 * Additional metrics processing (average/min/max over n minutes)

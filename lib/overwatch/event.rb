@@ -5,7 +5,7 @@ module Overwatch
 
     references_and_referenced_in_many :checks, :class_name => "Overwatch::Check"
     
-    def run(snapshot, check, node)
+    def run(snapshot, check, resource)
     end
   end # Event
 end # Overwatch

@@ -2,10 +2,10 @@ module Overwatch
   class CheckRun
     @queue = :checks
     
-    def self.perform(node_id)
-      node = Node.find(node_id)
-      node.checks.each do |check|
-        check.run(node.last_update)
+    def self.perform(resource_id)
+      resource = Resource.find(resource_id)
+      resource.checks.each do |check|
+        check.run(resource.last_update)
       end
     end
   end

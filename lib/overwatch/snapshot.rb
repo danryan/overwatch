@@ -5,7 +5,7 @@ module Overwatch
     
     attr_accessor :raw_data
     # field :raw_data, :type => String
-    referenced_in :node, :class_name => "Overwatch::Node"
+    referenced_in :resource, :class_name => "Overwatch::Resource"
     
     before_save :parse_data
     after_save :run_checks
@@ -19,7 +19,7 @@ module Overwatch
     end
     
     def run_checks
-      self.node.run_checks
+      self.resource.run_checks
     end
   end # class Snapshot 
 end # module Overwatch

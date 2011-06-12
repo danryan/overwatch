@@ -11,7 +11,7 @@ require 'hashie'
 require 'overwatch/version'
 require 'overwatch/application'
 
-require 'overwatch/node'
+require 'overwatch/resource'
 require 'overwatch/snapshot'
 require 'overwatch/check'
 require 'overwatch/rule'
@@ -22,7 +22,7 @@ require 'overwatch/event/sms'
 require 'overwatch/event/http'
 require 'overwatch/event/stdout'
 
-require 'overwatch/routes/node'
+require 'overwatch/routes/resource'
 require 'overwatch/routes/snapshot'
 
 module Overwatch
