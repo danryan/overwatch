@@ -4,7 +4,7 @@ module Overwatch
     include Ohm::Typecast
     include Ohm::Callbacks
     include Ohm::ExtraValidations
-
+    
     set :check_events, "Overwatch::CheckEvent"
     
     def checks

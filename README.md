@@ -80,14 +80,15 @@ An event is the action that occurs if a check run fails. Events can send emails,
     resource.snapshots << Overwatch::Snapshot.create(:raw_data => data, :resource => resource)
 
     # Add a new check to the resource
-    resource.checks << Overwatch::Check.create
-    check = resource.checks.first
+    check = Overwatch::Check.create
+    resource_check = Overwatch::ResourceCheck.create(:resource => resource, :check => check)
     
     # Set some rules on this check
     check.rules << Overwatch::Rule.create(:attr => "load_average.one_min").less_than(4)
     check.rules << Overwatch::Rule.create(:attr => "redis.version").is("2.2.4")
 
     # Now we need an email event in case something goes wrong
+    event = Overwatch::Event::STDOUT.create
     check.events << Overwatch::Event::STDOUT.create
     
     # Let's run the checks!

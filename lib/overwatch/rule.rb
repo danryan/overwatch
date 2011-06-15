@@ -40,7 +40,7 @@ module Overwatch
     end
     
     def less_than(arg)
-      self[:conditions] << [:less_than, arg]
+      self.conditions << [:less_than, arg]
       self.save
       self
     end
@@ -51,7 +51,7 @@ module Overwatch
     # alias_method :<, :less_than
     
     def greater_than(arg)
-      self[:conditions] << [:greater_than, arg]
+      self.conditions << [:greater_than, arg]
       self.save
       self
     end
@@ -62,7 +62,7 @@ module Overwatch
     # alias_method :>, :greater_than
     
     def is(arg)
-      self[:conditions] << [:is, arg]
+      self.conditions << [:is, arg]
       self.save
       self
     end
@@ -73,7 +73,7 @@ module Overwatch
     # alias_method :==, :is
     
     def is_not(arg)
-      self[:conditions] << [:is_not, arg]
+      self.conditions << [:is_not, arg]
       self.save
       self
     end
