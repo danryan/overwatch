@@ -76,5 +76,15 @@ module Overwatch
       end
     end
     
+    # All checks associated with a resource
+    get '/resources/:name/check/?' do |name|
+      checks = Overwatch::Resource.find(:name => name).first.resources
+      if checks.size == 0
+        halt 404
+      else
+        checks.to_json
+      end
+    end
+    
   end # Application
 end # Overwatch
