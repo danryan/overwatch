@@ -1,25 +1,27 @@
 module Overwatch
-  class Snapshot
-    include Mongoid::Document
-    include Mongoid::Timestamps::Created
+  class Snapshot < Ohm::Model
+    include Ohm::Timestamping
+    include Ohm::Typecast
+    include Ohm::Callbacks
+    include Ohm::ExtraValidations
     
     attr_accessor :raw_data
-    # field :raw_data, :type => String
-    referenced_in :resource, :class_name => "Overwatch::Resource"
+
+    reference :resource, "Overwatch::Resource"
     
-    before_save :parse_data
-    after_save :run_checks
+    after :save, :parse_data
+    after :save, :run_checks
 
     def parse_data
-      Overwatch.redis.set "snapshots:#{self._id}:data", Yajl.dump(self.raw_data)
+      Overwatch.redis.set "snapshots:#{self.id}:data", Yajl.dump(self.raw_data)
     end
     
     def data
-      Hashie::Mash.new(Yajl.load(Overwatch.redis.get "snapshots:#{self._id}:data"))
+      Hashie::Mash.new(Yajl.load(Overwatch.redis.get "snapshots:#{self.id}:data"))
     end
     
     def run_checks
-      self.resource.run_checks
+      Overwatch::Resource[self.resource_id].run_checks
     end
   end # class Snapshot 
 end # module Overwatch

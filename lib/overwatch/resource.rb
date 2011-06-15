@@ -1,23 +1,36 @@
 module Overwatch
-  class Resource
-    include Mongoid::Document
-    include Mongoid::Timestamps
+  class Resource < Ohm::Model
+    include Ohm::Timestamping
+    include Ohm::Typecast
+    include Ohm::Callbacks
+    include Ohm::ExtraValidations
     
-    field :name, :type => String
-    field :api_key, :type => String
-    
+    attribute :name, String
+    attribute :api_key, String
+
     index :name
+    index :api_key
     
-    references_many :snapshots, :class_name => "Overwatch::Snapshot", :validate => false
-    references_and_referenced_in_many :checks, :class_name => "Overwatch::Check"
+    list :snapshots, "Overwatch::Snapshot"
+    set :resource_checks, "Overwatch::ResourceCheck"
     
-    validates_presence_of :name, :api_key
-    validates_uniqueness_of :name
+    def validate
+      super
+      assert_present :name
+      assert_unique :name
+      assert_unique :api_key
+    end
     
-    before_validation :generate_api_key, :on => :create
+    before :create, :generate_api_key
+    
+    def checks
+      Overwatch::ResourceCheck.find(:resource_id => self.id).map do |rc|
+        Overwatch::Check[rc.check_id]
+      end
+    end
     
     def snapshot_range(start_at=Time.now, end_at=Time.now)
-      snapshots.where(:created_at.gte => start_at, :created_at.lte => end_at)
+      snapshots.find(:created_at.gte => start_at, :created_at.lte => end_at)
     end
     
     def previous_update
@@ -29,7 +42,7 @@ module Overwatch
     end
     
     def run_checks
-      Resque.enqueue(CheckRun, self._id.to_s)
+      Resque.enqueue(CheckRun, self.id.to_s)
     end
     
     def regenerate_api_key
@@ -41,7 +54,7 @@ module Overwatch
     
     def generate_api_key
       api_key = Digest::SHA1.hexdigest(Time.now.to_s + rand(12341234).to_s)[1..30]
-      self[:api_key] = api_key
+      self.api_key = api_key
     end
     
 

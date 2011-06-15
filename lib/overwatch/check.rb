@@ -1,10 +1,25 @@
 module Overwatch
-  class Check
-    include Mongoid::Document
+  class Check < Ohm::Model
+    include Ohm::Timestamping
+    include Ohm::Typecast
+    include Ohm::Callbacks
+    include Ohm::ExtraValidations
     
-    references_and_referenced_in_many :resources, :class_name => "Overwatch::Resource"
-    references_and_referenced_in_many :events, :class_name => "Overwatch::Event"
-    references_many :rules, :class_name => "Overwatch::Rule"
+    set :resource_checks, "Overwatch::ResourceCheck"
+    set :check_events, "Overwatch::CheckEvent"
+    set :rules, "Overwatch::Rule"
+    
+    def resources
+      Overwatch::ResourceCheck.find(:check_id => self.id).map do |rc|
+        Overwatch::Resource[rc.resource_id]
+      end
+    end
+    
+    def events
+      Overwatch::CheckEvent.find(:check_id => self.id).map do |rc|
+        Overwatch::Event[rc.event_id]
+      end
+    end
     
     def run(snapshot)
       rules.each do |rule|

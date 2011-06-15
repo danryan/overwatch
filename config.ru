@@ -8,7 +8,7 @@ $: << File.join(File.dirname(__FILE__), "lib")
 
 
 require 'overwatch'
-Mongoid.logger = Logger.new($stdout)
+# Mongoid.logger = Logger.new($stdout)
 
 run Rack::URLMap.new(
   "/"       => Overwatch::Application.new,

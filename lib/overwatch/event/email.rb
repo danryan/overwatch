@@ -1,6 +1,6 @@
 module Overwatch
   class Event::Email < Event
-    field :recipients, :type => Array
+    attribute :recipients, Array
 
     def run(snapshot, check, rule)
       Mail.defaults do

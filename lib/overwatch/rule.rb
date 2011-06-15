@@ -1,10 +1,14 @@
 module Overwatch
-  class Rule
-    include Mongoid::Document
-    field :attr, :type => String
-    field :conditions, :type => Array, :default => []
+  class Rule < Ohm::Model
+    include Ohm::Timestamping
+    include Ohm::Typecast
+    include Ohm::Callbacks
+    include Ohm::ExtraValidations
+
+    attribute :attr, String
+    attribute :conditions, Array
     
-    referenced_in :check, :class_name => "Overwatch::Check"
+    reference :check, "Overwatch::Check"
     
     def run(snapshot)
       conditions.each do |condition|

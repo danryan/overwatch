@@ -2,11 +2,11 @@ module Overwatch
   class Application < Sinatra::Base
     
     get '/resources/:name/snapshots/?' do |name|
-      resource = Resource.where(:name => name).first
+      resource = Resource.find(:name => name).first
       dates = {}
       dates[:start_at] = params[:start_at] || (DateTime.now - 1.hour)
       dates[:end_at] = params[:end_at] || DateTime.now
-      snapshots = resource.snapshots.where(
+      snapshots = resource.snapshots.find(
         :created_at.gte => params['start_at'] || (DateTime.now - 1.month),
         :created_at.lte => params['end_at'] || DateTime.now)
       if params['attribute']
@@ -21,7 +21,7 @@ module Overwatch
     end # GET index
 
     post '/resources/:name/snapshots/?' do |name|
-      resource = Resource.where(:name => name).first
+      resource = Resource.find(:name => name).first
       snapshot = resource.snapshots.new(:raw_data => request.body.read)
       
       if snapshot.save
@@ -34,7 +34,7 @@ module Overwatch
     end # POST
     
     get '/resources/:name/snapshots/:id/?' do |name, id|
-      resource = Overwatch::Resource.where(:name => name).first
+      resource = Overwatch::Resource.find(:name => name).first
       snapshot = resource.snapshots.find(id)
       if snapshot
         status 200
@@ -45,7 +45,7 @@ module Overwatch
     end # GET show
 
     delete '/resources/:name/snapshots/:id/?' do |name, id|
-      resource = Overwatch::Resource.where(:name => name).first
+      resource = Overwatch::Resource.find(:name => name).first
       snapshot = resource.snapshots.find(id)
       if snapshot
         if snapshot.delete
@@ -61,7 +61,7 @@ module Overwatch
     end # DELETE
     
     get '/resources/:name/snapshots/:id/data/?' do |name, id|
-      resource = Resource.where(:name => name).first
+      resource = Resource.find(:name => name).first
       snapshot = resource.snapshots.find(id)
       if snapshot
         status 200

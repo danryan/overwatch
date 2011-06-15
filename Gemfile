@@ -2,8 +2,9 @@ source "http://rubygems.org"
 
 # Specify your gem's dependencies in overwatch.gemspec
 
-gem "mongoid", "~> 2.0.0"
-gem "bson_ext", "~> 1.3.1", :require => "bson"
+gem "redis"
+gem "ohm"
+gem "ohm-contrib"
 gem "sinatra", "~> 1.2.1"
 gem 'sinatra-reloader', :require => 'sinatra/reloader'
 gem "nest", "~> 1.1.0"

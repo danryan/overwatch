@@ -1,9 +1,17 @@
 module Overwatch
-  class Event
-    include Mongoid::Document
-    include Mongoid::Timestamps
+  class Event < Ohm::Model
+    include Ohm::Timestamping
+    include Ohm::Typecast
+    include Ohm::Callbacks
+    include Ohm::ExtraValidations
 
-    references_and_referenced_in_many :checks, :class_name => "Overwatch::Check"
+    set :check_events, "Overwatch::CheckEvent"
+    
+    def checks
+      Overwatch::CheckEvent.find(:event_id => self.id).map do |rc|
+        Overwatch::Check[rc.check_id]
+      end
+    end
     
     def run(snapshot, check, resource)
     end

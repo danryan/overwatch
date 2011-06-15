@@ -1,8 +1,8 @@
 module Overwatch
   class Event::WebHook < Event
-    field :url, :type => Array
-    field :data, :type => Hash
-    field :headers, :type => Hash
+    attribute :url, Array
+    attribute :data, Hash
+    attribute :headers, Hash
     
     def run(snapshot, check, rule)
       res = RestClient.post self[:url], self[:data], self[:headers]

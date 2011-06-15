@@ -28,17 +28,17 @@ module Overwatch
       rescue LoadError
         puts "sinatra-reloader gem missing. reloading disabled"
       end
-      Mongoid.configure do |config|
-        config.master = Mongo::Connection.new.db("overwatch_dev")
-        config.persist_in_safe_mode = false
-      end  
+      # Mongoid.configure do |config|
+      #   config.master = Mongo::Connection.new.db("overwatch_dev")
+      #   config.persist_in_safe_mode = false
+      # end  
       
     end
     configure(:production) do
-      Mongoid.configure do |config|
-        config.master = Mongo::Connection.new.db("overwatch_production")
-        config.persist_in_safe_mode = false
-      end  
+      # Mongoid.configure do |config|
+      #   config.master = Mongo::Connection.new.db("overwatch_production")
+      #   config.persist_in_safe_mode = false
+      # end  
     end
     
     before do
