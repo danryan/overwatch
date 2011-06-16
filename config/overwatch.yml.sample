@@ -1,8 +1,0 @@
-mail:
-  address: mail.yourdomain.com
-  port: 587
-  domain: yourdomain.com
-  user_name: you@yourdomain.com
-  password: sekret
-  authentication: plain
-  enable_starttls_auto: true
