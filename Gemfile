@@ -14,6 +14,8 @@ gem 'resque'
 gem 'yajl-ruby', :require => 'yajl'
 gem 'haml'
 gem 'hashie'
+gem 'rest-client'
+gem 'activesupport', "3.0.6"
 
 group :development, :test do
   gem 'rspec'

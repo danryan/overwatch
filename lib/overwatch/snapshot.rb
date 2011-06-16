@@ -9,6 +9,9 @@ module Overwatch
 
     reference :resource, "Overwatch::Resource"
     
+    index :resource
+    index :created_at
+    
     after :save, :parse_data
     after :save, :run_checks
 
@@ -18,6 +21,14 @@ module Overwatch
     
     def data
       Hashie::Mash.new(Yajl.load(Overwatch.redis.get "snapshots:#{self.id}:data"))
+    end
+    
+    def self.find_by_range(start_at, end_at)
+      snapshots = self.find()
+      snapshots
+      find(:resource_id => self.resource_id).select do |s|
+        s.created_at.to_time < start_at.to_time && s.created_at.to_time > end_at.to_time
+      end
     end
     
     def run_checks

@@ -1,5 +1,5 @@
 module Overwatch
-  class Event::SMS < Event
+  class Event::XMPP < Event
     def run(snapshot, check, rule)
       super
     end

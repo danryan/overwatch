@@ -5,7 +5,7 @@ module Overwatch
     attribute :headers, Hash
     
     def run(snapshot, check, rule)
-      res = RestClient.post self[:url], self[:data], self[:headers]
+      res = RestClient.post self.url, self.data, self.headers
       # res.body
     end # run
     
