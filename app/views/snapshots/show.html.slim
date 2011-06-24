@@ -1,0 +1,5 @@
+= show_for @snapshot do |r|
+  = r.attribute :id
+  = r.attribute :created_at
+  = r.attribute :data do
+    = @snapshot.data.to_json

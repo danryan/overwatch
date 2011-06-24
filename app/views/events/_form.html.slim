@@ -1,0 +1,14 @@
+/ = simple_form_for(@event) do |f|
+/   = f.error_notification
+/ 
+/   .inputs
+/     = f.inputs
+/ 
+/   .actions
+/     = f.button :submit
+
+= render :partial => 'email'
+= render :partial => 'http'
+= render :partial => 'sms'
+= render :partial => 'stdout'
+= render :partial => 'xmpp'

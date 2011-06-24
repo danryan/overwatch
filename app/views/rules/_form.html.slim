@@ -1,0 +1,10 @@
+= simple_form_for(@rule) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :attr
+    = f.input :condition
+    = f.input :value
+
+  .actions
+    = f.button :submit

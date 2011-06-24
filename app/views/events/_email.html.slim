@@ -1,0 +1,10 @@
+h2 Email Event
+
+= simple_form_for(@email_event, :url => @event) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :recipients
+    = f.input :type, :as => :hidden
+  .actions
+    = f.button :submit

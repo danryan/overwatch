@@ -1,0 +1,5 @@
+= show_for @asset do |r|
+  = r.attribute :name
+  = r.attribute :api_key
+  = r.association :checks do |check|
+    li= link_to check.id, check

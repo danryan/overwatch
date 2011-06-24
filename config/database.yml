@@ -1,0 +1,12 @@
+defaults: &defaults
+  adapter: redis
+  host: localhost
+  
+development:
+  <<: *defaults
+  
+test:
+  <<: *defaults
+    
+production:
+  <<: *defaults

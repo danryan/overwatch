@@ -1,0 +1,8 @@
+= table_for Asset, @assets do |table|
+  = table.head :name, :api_key
+  = table.body do |row|
+    = row.cell :name
+    = row.cell :api_key
+    = row.cell link_to "Show", row.record
+  = table.foot do
+    = link_to "Add ", new_asset_path
