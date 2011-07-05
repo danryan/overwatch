@@ -1,0 +1,6 @@
+clear_old_snapshots:
+  cron: "* * * * *"
+  class: ClearOldSnapshots
+  queue: low
+  args: 
+  description: "Clears out old snapshots"

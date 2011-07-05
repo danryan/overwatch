@@ -1,0 +1,23 @@
+#chart-container {
+/*  display: hidden;*/
+}
+
+#chart-hourly {
+}
+#chart-daily {
+
+}
+#chart-weekly {
+  
+}
+#chart-monthly {
+  
+}
+
+.graph {
+  display: block;
+}
+
+.graph tspan {
+  text-transform: capitalize;
+}

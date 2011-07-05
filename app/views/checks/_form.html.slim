@@ -1,8 +1,18 @@
-= simple_form_for(@check) do |f|
-  = f.error_notification
+- if @asset
+  = simple_form_for(@asset, @check) do |f|
+    = f.error_notification
 
-  .inputs
-    = f.input :name
+    .inputs
 
-  .actions
-    = f.button :submit
+    .actions
+      = f.button :submit
+  
+- else
+  = simple_form_for(@check) do |f|
+    = f.error_notification
+
+    .inputs
+
+    .actions
+      = f.button :submit
+  

@@ -5,7 +5,8 @@ class Snapshot
   
   property :id, Serial, :index => true
   property :created_at, DateTime
-  property :updated_at, DateTime
+  property :created_at_hour, Integer
+  property :created_at_min, Integer
       
   attr_accessor :data
   attr_accessor :raw_data
@@ -14,18 +15,19 @@ class Snapshot
   
   after :create, :parse_data
   after :create, :run_checks
-  after :create, :schedule_reaper
   after :create, :update_attribute_keys
+  after :create, :set_timestamps
+  after :create, :schedule_reaper
   
   def parse_data
     raw_data = Yajl.dump(self.raw_data)
-    Overwatch.redis.set "overwatch::snapshot:#{self.id}:data", raw_data
+    Overwatch.redis.set "snapshot:#{self.id}:data", raw_data
   end
   
   def data
     begin
       Hashie::Mash.new(
-        Yajl.load(Overwatch.redis.get("overwatch::snapshot:#{self.id}:data"))
+        Yajl.load(Overwatch.redis.get("snapshot:#{self.id}:data"))
       )
     rescue
     end
@@ -37,7 +39,7 @@ class Snapshot
   
   def update_attribute_keys
     self.to_dotted_hash.keys.each do |key|
-      Overwatch.redis.sadd "overwatch::asset:#{self.asset.id}:attribute_keys", key
+      Overwatch.redis.sadd "asset:#{self.asset.id}:attribute_keys", key
     end
   end
     
@@ -56,7 +58,20 @@ class Snapshot
   end
   
   def schedule_reaper
-    Resque.enqueue_in(30.days, SnapshotReaper, self)
+    if self.created_at.min % 5 != 0
+      Resque.enqueue_in(60.minutes, SnapshotReaper, self)
+    elsif self.created_at.hour != 0 && self.created_at.min != 0
+      Resque.enqueue_in(1.day, SnapshotReaper, self)
+    else
+      Resque.enqueue_in(30.days, SnapshotReaper, self)
+    end
+  end
+  
+  def set_timestamps
+    self.created_at = Time.at(self.created_at.to_i).round(1.minute).to_datetime
+    self.created_at_hour = self.created_at.hour
+    self.created_at_min = self.created_at.min
+    self.save
   end
   
 end

@@ -1,0 +1,5 @@
+div.check
+  p Check #{check.id}
+  ul#rules
+    - check.rules.each do |rule|
+      li= render 'rule', :rule => rule
