@@ -28,10 +28,10 @@ class Rule
   # .if is a essentially a shortcut macro to instantiate a new Rule, save it 
   # and return it, allowing one to chain cond.
   
-  def to_s
-    cond = cond.map {|c| "#{humanized_keys.values_at(c[0]).first} #{c[1]}" }
-    "#{self.attr} #{cond.join(' and ')}"
-  end
+  # def to_s
+  #   cond = cond.map {|c| "#{humanized_keys.values_at(c[0]).first} #{c[1]}" }
+  #   "#{self.attr} #{cond.join(' and ')}"
+  # end
   
   def self.if(attr)
     rule = new(:attr => attr)
@@ -83,6 +83,9 @@ class Rule
   alias_method :ne, :is_not
   alias_method :not_equal_to, :is_not
 
+  # Add compatibility for DataMapper to cocoon
+  alias_method :new_record?, :new?
+    
   private
   
   def humanized_keys
@@ -93,5 +96,6 @@ class Rule
       'less_than' => "is less than"
     }
   end
+  
 
 end

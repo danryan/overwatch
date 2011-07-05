@@ -24,6 +24,6 @@ Overwatch::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
   
   Slim::Engine.set_default_options :pretty => true
-  
+  ENV['REDIS_URL'] ||= 'redis://localhost:6379/0'
 end
 

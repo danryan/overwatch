@@ -46,4 +46,5 @@ Overwatch::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  ENV['REDIS_URL'] ||= 'redis://localhost:6379/0'
 end

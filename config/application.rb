@@ -20,7 +20,8 @@ module Overwatch
     end
     
     config.autoload_paths << "#{Rails.root}/app/jobs"
-    
+    config.autoload_paths << "#{Rails.root}/lib"
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -45,6 +46,5 @@ module Overwatch
       @redis = Redis.new
     end
     
-    ENV['REDIS_URL'] ||= 'redis://localhost:6379/0'
   end
 end

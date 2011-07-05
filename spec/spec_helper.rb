@@ -10,6 +10,8 @@ Spork.prefork do
 
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+  ENV['REDIS_URL'] = 'redis://localhost:6379/3'
+
   RSpec.configure do |config|
     config.color_enabled = true
     config.formatter = "documentation"

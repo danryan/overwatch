@@ -1,3 +1,4 @@
 = show_for @check do |r|
   = r.attribute :id
-  = r.association :rules
+  = r.association :rules do |rule|
+    li= link_to rule.id, check_rule_path(@check, rule)

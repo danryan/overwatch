@@ -10,6 +10,8 @@ gem 'dm-serializer', '~> 1.1.0'
 gem 'dm-timestamps', '~> 1.1.0'
 gem 'dm-validations', '~> 1.1.0'
 gem 'dm-types', '~> 1.1.0'
+# gem 'dm-aggregates', '~> 1.1.0'
+gem 'dm-accepts_nested_attributes', :git => 'git://github.com/danryan/dm-accepts_nested_attributes.git'
 gem 'resque'
 gem 'resque-scheduler', :require => 'resque/scheduler'
 gem 'yajl-ruby', :require => 'yajl'
@@ -23,8 +25,8 @@ gem 'table_for'
 
 group :development, :test do
   gem "flutie", "~> 1.1"
-  # gem 'shoulda-datamapper', :git => "git://github.com/felix/shoulda-datamapper.git"
   gem 'shoulda'
+  gem 'jquery-rails'
   gem "slim-rails"
   gem 'rails3-generators'
   gem 'rspec-rails', '~> 2.6.0'

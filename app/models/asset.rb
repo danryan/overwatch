@@ -3,7 +3,7 @@ class Asset
 
   property :id, Serial
 
-  property :created_at, DateTime
+  property :created_at, DateTime, :index => true
   property :updated_at, DateTime
   property :name, String, :index => true, :unique => true, :required => true
   property :api_key, String, :index => true, :unique => true
@@ -15,6 +15,8 @@ class Asset
   
   before :create, :generate_api_key
   after :create, :schedule_no_data_check
+  
+  accepts_nested_attributes_for :checks
   
   def snapshot_range(start_at=nil, end_at=nil)
     s = start_at || DateTime.now - 1.hour
@@ -48,7 +50,7 @@ class Asset
   end
   
   def attribute_keys
-    Overwatch.redis.smembers "overwatch::asset:#{self.id}:attribute_keys"
+    Overwatch.redis.smembers "asset:#{self.id}:attribute_keys"
   end
   
   def average(attr, options={})
@@ -70,14 +72,14 @@ class Asset
   def function(func, attr, options={})
     case func
     when :max
-      values_for(attr, options).max
+      values_for(attr, options)[:data].max
     when :min
-      values_for(attr, options).min
+      values_for(attr, options)[:data].min
     when :average
-      values = values_for(attr, options)
+      values = values_for(attr, options)[:data]
       values.inject { |sum, e| sum + e }.to_f / values.size  
     when :median
-      values = values_for(attr, options).sort
+      values = values_for(attr, options)[:data].sort
       mid = values.size / 2
       values[mid]
     end
@@ -86,33 +88,108 @@ class Asset
   def values_for(attr, options={})
     raise ArgumentError, "attribute does not exist" unless attribute_keys.include?(attr)
     start_at = options[:start_at] || Time.now - 1.hour
-    end_at = options[:end_at] || Time.now 
-    values = snapshots.all(
-      :created_at.gte => start_at, 
-      :created_at.lte => end_at
-    ).inject([]) do |result, snap|
-      result << snap.to_dotted_hash[attr]
+    end_at = options[:end_at] || Time.now
+    interval = options[:interval] || nil
+    case interval
+    when 'minute'
+      values = snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at
+      ).inject([]) do |result, snap|
+        result << snap.to_dotted_hash[attr]
+      end
+    when 'quarter'
+      values = snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at,
+        :created_at_min => [0, 15, 30, 45]
+      ).inject([]) do |result, snap|
+        result << snap.to_dotted_hash[attr]
+      end
+    when 'hour'
+      values = snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at,
+        :created_at_min => 0
+      ).inject([]) do |result, snap|
+        result << snap.to_dotted_hash[attr]
+      end
+    when 'day'
+      values = snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at,
+        :created_at_hour => 0,
+        :created_at_min => 0
+      ).inject([]) do |result, snap|
+        result << snap.to_dotted_hash[attr]
+      end
+    else
+      values = snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at
+      ).inject([]) do |result, snap|
+        result << snap.to_dotted_hash[attr]
+      end    
     end
     
-    values.select! { |value| is_a_number?(value) }
+    # values.select! { |value| is_a_number?(value) }
     values.compact!
-    values
+    { :name => attr, :data => values }#, :start_at => start_at, :end_at => end_at }
+    
   end
   
   def values_with_dates_for(attr, options={})
     raise ArgumentError, "attribute does not exist" unless attribute_keys.include?(attr)
     start_at = options[:start_at] || Time.now - 1.hour
-    end_at = options[:end_at] || Time.now 
-    values = snapshots.all(
-      :created_at.gte => start_at, 
-      :created_at.lte => end_at
-    ).inject([]) do |result, snap|
-      result << [ snap.created_at, snap.to_dotted_hash[attr] ]
+    end_at = options[:end_at] || Time.now
+    interval = options[:interval] || nil
+    values = case interval
+    when 'minute'
+      snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at
+      )
+    when 'quarter'
+      snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at,
+        :created_at_min => [0, 15, 30, 45]
+      )
+    when 'hour'
+      snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at,
+        :created_at_min => 0
+      )
+    when 'day'
+      snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at,
+        :created_at_hour => 0,
+        :created_at_min => 0
+      )
+    else
+      snapshots.all(
+        :order => [ :created_at.desc ],
+        :created_at.gte => start_at, 
+        :created_at.lte => end_at
+      )  
+    end.inject([]) do |result, snap|
+      result << [ (snap.created_at.to_i * 1000), snap.to_dotted_hash[attr] ]
     end
-
-    values.select! { |value| is_a_number?(value[1]) }
+    
+    # values.map! { |value| [ value[0], value[1] }
     values.compact!
-    values
+    { :name => attr, :data => values } #, :start_at => start_at, :end_at => end_at }
   end
   
   private
