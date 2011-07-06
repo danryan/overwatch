@@ -23,6 +23,10 @@ class Snapshot
   def parse_data
     raw_data = Yajl.dump(self.raw_data)
     $redis.set "snapshot:#{self.id}:data", raw_data
+    self.to_dotted_hash.each_pair do |key, value|
+      timestamp = Time.now.to_i
+      $redis.zadd "asset:#{self.asset.id}:attrs:#{key}", timestamp, "#{timestamp}:#{value}" 
+    end
   end
   
   def data
