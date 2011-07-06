@@ -20,8 +20,11 @@ class SnapshotsController < ApplicationController
   
   def create
     @snapshot = @asset.snapshots.new(params[:snapshot])
-    if @asset.save
-      respond_with @snapshot
+    respond_to do |wants|
+      if @asset.save
+        wants.html { redirect_to [@asset, @snapshot] }
+        wants.json { render :json => @snapshot, :only => [:id, :created_at, :asset_id] }
+      end
     end
   end
   
@@ -47,6 +50,12 @@ class SnapshotsController < ApplicationController
   private
   
   def get_asset
-    @asset = Asset.get(params[:asset_id])
+    if params[:asset_id]
+      @asset = Asset.get(params[:asset_id])
+    elsif params[:key]
+      @asset = Asset.first(:api_key => params[:key])
+    else
+      @asset = nil
+    end
   end
 end

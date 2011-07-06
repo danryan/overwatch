@@ -21,4 +21,5 @@ Overwatch::Application.routes.draw do
     resources :checks
   end
   
+  resources :snapshots, :only => [ :create ]
 end

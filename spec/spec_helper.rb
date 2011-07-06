@@ -18,7 +18,7 @@ Spork.prefork do
     config.mock_with :rspec
     
     config.before :suite do
-      Overwatch.redis.flushdb
+      $redis.flushdb
     end
   end
 end

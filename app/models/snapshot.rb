@@ -7,7 +7,8 @@ class Snapshot
   property :created_at, DateTime
   property :created_at_hour, Integer
   property :created_at_min, Integer
-      
+  property :created_at_int, Integer
+  
   attr_accessor :data
   attr_accessor :raw_data
   
@@ -21,13 +22,13 @@ class Snapshot
   
   def parse_data
     raw_data = Yajl.dump(self.raw_data)
-    Overwatch.redis.set "snapshot:#{self.id}:data", raw_data
+    $redis.set "snapshot:#{self.id}:data", raw_data
   end
   
   def data
     begin
       Hashie::Mash.new(
-        Yajl.load(Overwatch.redis.get("snapshot:#{self.id}:data"))
+        Yajl.load($redis.get("snapshot:#{self.id}:data"))
       )
     rescue
     end
@@ -39,7 +40,7 @@ class Snapshot
   
   def update_attribute_keys
     self.to_dotted_hash.keys.each do |key|
-      Overwatch.redis.sadd "asset:#{self.asset.id}:attribute_keys", key
+      $redis.sadd "asset:#{self.asset.id}:attribute_keys", key
     end
   end
     
@@ -68,9 +69,11 @@ class Snapshot
   end
   
   def set_timestamps
-    self.created_at = Time.at(self.created_at.to_i).round(1.minute).to_datetime
-    self.created_at_hour = self.created_at.hour
-    self.created_at_min = self.created_at.min
+    time = DateTime.now.round(1.minute)
+    self.created_at = time
+    self.created_at_int = time.to_i
+    self.created_at_hour = time.hour
+    self.created_at_min = time.min
     self.save
   end
   
