@@ -23,7 +23,7 @@ class SnapshotsController < ApplicationController
     respond_to do |wants|
       if @asset.save
         wants.html { redirect_to [@asset, @snapshot] }
-        wants.json { render :json => @snapshot, :only => [:id, :created_at, :asset_id] }
+        wants.json { render :json => @snapshot, :only => [ :id, :created_at ] }
       end
     end
   end

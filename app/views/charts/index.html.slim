@@ -1,0 +1,10 @@
+= table_for Chart, @charts do |table|
+  = table.head :title
+  = table.body do |row|
+    = row.cell :title
+    = row.cell link_to "Show", asset_chart_path(@asset, row.record)
+  = table.foot do
+    = link_to "Add Chart", new_asset_chart_path(@asset)
+
+/ - @asset.attribute_keys.each do |metric|
+/   == render :partial => 'shared/chart', :locals => { :title => metric, :metrics => [ metric ] }

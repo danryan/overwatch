@@ -22,9 +22,10 @@ gem 'rest-client'
 gem 'simple_form'
 gem 'show_for'
 gem 'table_for'
+gem 'interpolate'
 
 group :development, :test do
-  gem "flutie", "~> 1.1"
+  gem "flutie", "~> 1.1"  
   gem 'shoulda'
   gem 'jquery-rails'
   gem "slim-rails"

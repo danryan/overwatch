@@ -1,5 +1,7 @@
 #chart-container {
 /*  display: hidden;*/
+  width: 90%;
+  margin: 0 auto;
 }
 
 #chart-hourly {
@@ -20,4 +22,24 @@
 
 .graph tspan {
   text-transform: capitalize;
+}
+
+#chart-stats {}
+  #chart-stats-left {
+    float: left;
+    padding; 10px;
+  }
+    #chart-last {}
+    #chart-first {}
+    #chart-average {}
+  #chart-stats-right {
+    float: right;
+    padding: 10px;
+  }
+    #chart-min {}
+    #chart-max {}
+    #chart-median {}
+      
+#attribute_keys {
+  display: none;
 }

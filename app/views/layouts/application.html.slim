@@ -2,8 +2,8 @@ doctype 5
 html
   head 
     title Overwatch
-    = stylesheet_link_tag :all, :flutie
-    = javascript_include_tag :defaults, 'highcharts', 'chart'
+    = stylesheet_link_tag :all, :flutie, 'jquery.ui'
+    = javascript_include_tag :defaults, 'underscore-min', 'highcharts', 'chart', 'jquery.ui'
     = csrf_meta_tag
   body
     header
@@ -12,4 +12,3 @@ html
       = yield
       
     footer
-    = debug(params)

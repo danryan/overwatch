@@ -1,0 +1,4 @@
+= simple_form_for @chart, :url => [@asset, @chart] do |f|
+  = f.input :title
+  = f.input :metrics, :as => :check_boxes, :collection => @asset.attribute_keys.sort, :required => false
+  = f.submit

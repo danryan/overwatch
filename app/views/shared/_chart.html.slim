@@ -1,1 +1,113 @@
-#chart-container data-hourly-start=(Time.now - 1.hour).to_i data-daily-start=(Time.now - 1.day).to_i data-weekly-start=(Time.now - 1.week).to_i data-monthly-start=(Time.now - 1.month).to_i data-end=Time.now.to_i
+
+#chart-container data-hourly-start=(Time.now - 1.hour).to_i data-daily-start=(Time.now - 1.day).to_i data-weekly-start=(Time.now - 1.week).to_i data-monthly-start=(Time.now - 1.month).to_i data-end=Time.now.to_i data-asset-id=(@asset.id)
+
+  div.graph id=("chart-#{title.parameterize}")
+
+javascript:
+  var hourlyStart = $('#chart-container').attr('data-hourly-start');
+  var dailyStart = $('#chart-container').attr('data-daily-start');
+  var weeklyStart = $('#chart-container').attr('data-weekly-start');
+  var monthlyStart = $('#chart-container').attr('data-monthly-start');
+  var assetId = $('#chart-container').attr('data-asset-id');
+  var endAt = $('#chart-container').attr('data-end');
+  
+  var chartConfig = function(renderId, title) { //, data) {
+    var config = {
+      chart: {
+        renderTo: renderId,
+        zoomType: 'x',
+        // width: 500,
+        height: 300,
+        defaultSeriesType: 'line',
+        animation: false
+      },
+      title: {
+        text: '#{{@chart.title}}'
+      },
+      subtitle: {
+        text: ''
+      },
+      xAxis: {
+        type: 'datetime'
+        // tickInterval: 60 * 1000
+      },
+      yAxis: {
+        title: {
+          text: ""
+        }
+      },
+      tooltip: {
+        enabled: true,
+        formatter: function() {
+          d = new Date(this.x);
+          return '<b>'+ this.series.name +'</b><br/>' + Highcharts.dateFormat('%H:%M %e/%m/%Y', this.x)+': '+ this.y;
+          
+          // return '<b>'+ this.series.name +'</b><br/>'+ d.getHours() + ':' + 
+          // d.getMinutes() + ' ' + d.getDate() + '/' + d.getMonth() + '/' +
+          // d.getFullYear() +': '+ this.y;
+        },
+        crosshairs: true
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          animation: false,
+          enableMouseTracking: true,
+          lineWidth: 1,
+          shadow: false,
+          dataLabels: false, 
+          states: {
+            hover: {
+              lineWidth: 1
+            }
+          },
+          marker: {
+            enabled: true,
+            radius: 1,
+            states: {
+              hover: {
+                enabled: true,
+                radius: 3
+              }
+            }
+          }
+        }
+      },
+      series: {
+        cursor: 'pointer'
+
+      }
+    }
+    return config;
+  };
+  var chart = new Highcharts.Chart(
+    chartConfig("chart-" + '#{title.parameterize}', '#{{title.split(".").map(&:titleize).join(" / ")}}')
+  );
+  chart.showLoading();
+  
+- metrics.each do |metric|
+  javascript:
+    $.ajax({
+      dataType: 'json',
+      url: '/assets/' + assetId + '/attributes.json?attr=#{metric}' + '&date=true&start_at=' + hourlyStart + "&end_at=" + endAt + '&interval=hour',
+      success: function(data){
+        // parseDates(data);
+        chart.addSeries({
+          name: '#{{metric.split(".").map(&:titleize).join(" / ")}}',
+          data: data.data
+        })
+        chart.hideLoading();
+      }
+    })
+
+#chart-stats
+  #chart-stats-left
+    #chart-first
+    #chart-last
+    #chart-median
+  #chart-stats-right
+    #chart-min
+    #chart-max
+    #chart-average

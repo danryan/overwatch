@@ -48,12 +48,11 @@ class AssetsController < ApplicationController
   def attributes
     @asset = Asset.get(params[:id])
     @attributes = @asset.attribute_keys
-    @metric = { :unit => "GB" }
 
     options = { 
-      :start_at => Time.at(params[:start_at].to_i) || nil, 
-      :end_at => Time.at(params[:end_at].to_i || nil),
-      :interval => params[:interval].to_s || 'minute'
+      :start_at => (params[:start_at].to_i || nil), 
+      :end_at => (params[:end_at].to_i || nil),
+      :interval => params[:interval].to_s || 'hour'
     }
 
     attribute = params[:attr]
@@ -61,14 +60,28 @@ class AssetsController < ApplicationController
       if params[:date] == 'true'
         @attribute = @asset.values_with_dates_for(attribute, options)
         respond_with(@attribute)
+      elsif params[:function]
+        @attribute = @asset.function(params[:function].to_sym, attribute, options)
+        respond_with(@attribute)
       else
         @attribute = @asset.values_for(attribute, options)
         respond_with(@attribute)
-      end
+      end      
     else
       respond_with(@attributes)
     end
     
   end
   
+  def sub_attributes
+    @asset = Asset.get(params[:id])
+    @attributes = @asset.sub_attributes(params[:attribute])
+    respond_to do |wants|
+      wants.json { render :json => @attributes }
+      wants.js # do
+       # render :partial => 'shared/sub_attributes', 
+       #        :locals => { :attributes => @attributes }
+      # end
+    end
+  end
 end
