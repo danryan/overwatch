@@ -1,0 +1,29 @@
+:checks:
+  :url: https://checks.overwat.ch
+  :adapter: :default
+  :queue: checks
+  :enabled: true
+:events:
+  :url: https://events.overwat.ch
+  :adapter: :default
+  :enabled: true
+  :plugins:
+    :email:
+      :address: mail.yourdomain.com
+      :port: 587
+      :domain: yourdomain.com
+      :user_name: you@yourdomain.com
+      :password: sekret
+      :authentication: plain
+      :enable_starttls_auto: true
+    :http:
+    :xmpp:
+      :jid: you@yourdomain.com
+      :password: sekret
+      :server: jabber.yourdomain.com
+      :port: 5222
+      :ssl: true
+:storage:
+  :url: https://storage.overwat.ch
+  :adapter: :default
+  :enabled: true

@@ -35,6 +35,7 @@ module Overwatch
     
   end
   
+  require 'overwatch/config'
   class << self
     def config_file_path
       @config_file_path ||= 
@@ -42,12 +43,15 @@ module Overwatch
     end
       
     def config
-      @config ||= YAML.load_file(config_file_path)
+      Overwatch::Config.new
     end
     
     def redis
       @redis = Redis.new
     end
     
+    def setup
+      yield Overwatch::Config.new
+    end
   end
 end
