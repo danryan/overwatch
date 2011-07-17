@@ -9,7 +9,7 @@ class Check
   has n, :events, :through => :check_event
   has n, :rules
   
-  accepts_nested_attributes_for :rules
+  # accepts_nested_attributes_for :rules
   
   def run(snapshot)
     rules.each do |rule|

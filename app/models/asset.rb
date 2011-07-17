@@ -18,7 +18,7 @@ class Asset
   after :create, :schedule_no_data_check
   
   validates_uniqueness_of :name
-  accepts_nested_attributes_for :checks
+  # accepts_nested_attributes_for :checks
   
   def intervals
     [
