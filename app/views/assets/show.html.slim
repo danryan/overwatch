@@ -1,8 +1,0 @@
-= show_for @asset do |r|
-  = r.attribute :name
-  = r.attribute :api_key
-  
-/ - @asset.checks.each do |check| 
-/   = render 'check', :check => check
-  
-= render 'shared/chart'

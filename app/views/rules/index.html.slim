@@ -1,9 +1,0 @@
-= table_for Rule, @rules do |table|
-  = table.head :attr, :condition, :value
-  = table.body do |row|
-    = row.cell :attr
-    = row.cell :condition
-    = row.cell :value
-    = row.cell link_to "Show", rule_path(row.record)
-  = table.foot do
-    = link_to "Add rule", new_rule_path

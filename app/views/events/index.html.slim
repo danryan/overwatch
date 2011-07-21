@@ -1,8 +1,0 @@
-= table_for Event, @events do |table|
-  = table.head :id, :type 
-  = table.body do |row|
-    = row.cell :id
-    = row.cell :type
-    = row.cell link_to "Show", event_path(row.record)
-  = table.foot do
-    = link_to "Add event", new_event_path

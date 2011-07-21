@@ -1,8 +1,0 @@
-= table_for Snapshot, @snapshots do |table|
-  = table.head :id, :created_at
-  = table.body do |row|
-    = row.cell :id
-    = row.cell :created_at
-    = row.cell link_to "Show", resource_snapshot_path(@resource, row.record)
-  = table.foot do
-    = 

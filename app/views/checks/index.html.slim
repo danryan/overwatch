@@ -1,7 +1,0 @@
-= table_for Check, @checks do |table|
-  = table.head :id
-  = table.body do |row|
-    = row.cell :id
-    = row.cell link_to "Show", check_path(row.record)
-  = table.foot do
-    = link_to "Add check", new_check_path
