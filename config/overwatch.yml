@@ -23,7 +23,7 @@
       :server: jabber.yourdomain.com
       :port: 5222
       :ssl: true
-:storage:
-  :url: https://storage.overwat.ch
+:asset:
+  :url: https://assets.overwat.ch
   :adapter: :default
   :enabled: true

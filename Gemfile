@@ -31,7 +31,7 @@ group :development, :test do
   gem "slim-rails"
   gem 'rails3-generators'
   gem 'rspec-rails', '~> 2.6.0'
-  gem 'spork', '~> 0.9.0.rc8'
+  gem 'spork', '>= 0.9.0.rc8'
   gem 'watchr', '~> 0.7'
   gem 'rack-test'
   gem 'ruby-debug-base19', '0.11.24'
