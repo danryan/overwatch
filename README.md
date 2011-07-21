@@ -1,7 +1,5 @@
 # Overwatch
 
-## Overview
-
 Overwatch is a suite of monitoring tools designed for flexibility in all aspects, from how data is collected to the way notifications are handled.
 
 ## Tools
