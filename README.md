@@ -2,8 +2,11 @@
 
 ## Overview
 
-Overwatch is a monitoring application designed for flexibility in all aspects, from how data is collected to the way notifications are handled.
+Overwatch is a suite of monitoring tools designed for flexibility in all aspects, from how data is collected to the way notifications are handled.
 
+## Tools
+
+* [Overwatch::Collection](https://github.com/danryan/overwatch-collection)
 ## Impetus
 
 "Why another monitoring app?" 
@@ -56,67 +59,3 @@ A rule is three parts: an attribute of the resource, a condition, and an expecta
 ### Event
 
 An event is the action that occurs if a check run fails. Events can send emails, text message, a payload to another web app, log to a server, and anything else you can think of. You can write any event type you want so long as it responds to `#run`.
-
-## Example Run
-
-
-    # Let's fudge a snapshot payload:
-
-    data = { 
-      :redis => {
-        :version => "2.2.4"
-      },
-      :load_average => { 
-        :one_min => "1.01", 
-        :five_min => "0.96", 
-        :fifteen_min => "0.72"
-      }
-    }
-
-    # Add a new resource, host.example.com
-    resource = Overwatch::Resource.create(:name => "host.example.com")
-    
-    # Send the resource a snapshot
-    resource.snapshots << Overwatch::Snapshot.create(:raw_data => data, :resource => resource)
-
-    # Add a new check to the resource
-    check = Overwatch::Check.create
-    resource_check = Overwatch::ResourceCheck.create(:resource => resource, :check => check)
-    
-    # Set some rules on this check
-    check.rules << Overwatch::Rule.create(:attr => "load_average.one_min").less_than(4)
-    check.rules << Overwatch::Rule.create(:attr => "redis.version").is("2.2.4")
-
-    # Now we need an email event in case something goes wrong
-    event = Overwatch::Event::STDOUT.create
-    check.events << Overwatch::Event::STDOUT.create
-    
-    # Let's run the checks!
-    resource.run_checks
-    
-    # Call the check run directly (resource.last_update is the last snapshot to be added)
-    check.run(resource.last_update)
-    
-    # This should return true. Now let's introduce some failure
-    
-    check.rules << Overwatch::Rule.create(:attr => "load_average.five_min").less_than(0.50)
-    
-    # The check failed, so an event was fired. You should see something like this:
-    # holy science!!
-    # load_average.five_min is less than 0.5 failed on host.example.com!
-    # What we checked: load_average.five_min is less than 0.5
-    # What we saw: 0.96
-    
-## Installation
-
-    git clone git://github.com/danryan/overwatch.git && cd overwatch && rackup
-
-## Roadmap
-
-Some things I need to implement before I consider Overwatch ready for primetime (in no particular order):
-
-* Graphs for single attributes, aggregate attributes and aggregate resources
-* Finish the API for creating checks, rules and events
-* Add a frontend
-* Additional metrics processing (average/min/max over n minutes)
-* Include resource-based and user-based access control
