@@ -6,8 +6,7 @@ Overwatch is a suite of monitoring tools designed for flexibility in all aspects
 
 * [Overwatch::Collection](https://github.com/danryan/overwatch-collection) - Metric collection and storage
 * [Overwatch::Events](https://github.com/danryan/overwatch-events) - Threshold checking and event processing
-* [Overwatch::Client](https://github.com/danryan/overwatch-client) - Client for metric collecting and reporting
-* [Overwatch::CLI](https://github.com/danryan/overwatch-cli) - Command-line interface for configuration and data retrieval
+* [Overwatch::Client](https://github.com/danryan/overwatch-client) - Client for metric collecting and reporting, and a command-line interface for configuration and data retrieval
 * [Overwatch::Web](https://github.com/danryan/overwatch-web) - Web interface for configuration and data retrieval
 
 ## Impetus
